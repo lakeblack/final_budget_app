@@ -14,7 +14,10 @@ class PieChart extends Component{
 
   let options = {
       title: 'Expenses Comparison',
-      is3D: true
+      backgroundColor: 'none',
+      is3D: true,
+      legend: {textStyle: {color: 'white'}},
+      titleTextStyle: {color: 'white'}
   };
 
   let data = [
