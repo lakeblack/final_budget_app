@@ -14,5 +14,4 @@ const router = (
     </Route>
   </Router>
 )
-
 export default router;
