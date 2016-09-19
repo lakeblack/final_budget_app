@@ -2,6 +2,7 @@ import React from 'react';
 
 function LoginContainer (props){
   return (
+    <div className="container">
     <div className="middlePage">
         {props.login ? <h2>Budget App</h2> : null}
     <div className="panel panel-info">
@@ -22,7 +23,7 @@ function LoginContainer (props){
       <input id="textinput" name="textinput" type="text" placeholder="Enter User Name" className="form-control input-md"/>
       <input id="textinput" name="textinput" type="password" placeholder="Enter Password" className="form-control input-md"/>
       <button id="singlebutton" name="singlebutton" className="btn btn-info btn-sm pull-right">Sign In</button>
-      <button onClick={props.toggleLogin} className="btn btn-success btn-sm pull-left">Sign Up</button>
+      <button onClick={props.toggleLogin} className="btn btn-success btn-sm pull-right">Sign Up</button>
 
 
     </fieldset>
@@ -34,6 +35,7 @@ function LoginContainer (props){
     </div>
     </div>
 
+    </div>
     </div>
   )
 
