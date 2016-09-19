@@ -10,7 +10,7 @@ const router = (
     <Route path="/" component={AppContainer}>
       <IndexRoute component={Login} />
       <Route path="/signup" component={SignUp}/>
-      <Route path="/home" component={Home}/>
+      <Route path="/home/(:userUID)" component={Home}/>
     </Route>
   </Router>
 )
