@@ -2,6 +2,7 @@ import React from 'react';
 
 function LoginContainer (props){
   return (
+    <div className="container">
     <div className="middlePage">
         {props.login ? <h2>Budget App</h2> : null}
     <div className="panel panel-info">
@@ -34,6 +35,7 @@ function LoginContainer (props){
     </div>
     </div>
 
+    </div>
     </div>
   )
 
