@@ -17,6 +17,11 @@ font-family: 'Raleway', sans-serif;
     right: 0;
     margin: auto;
 }
-button .log{
+button{
   min-width: 200px;
+  margin: 10px;
+}
+.btn-sm{
+  margin: 0;
+  min-width: 182px;
 }
