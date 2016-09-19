@@ -1,5 +1,22 @@
 body {
-  margin: 0;
+  margin: auto auto;
   padding: 0;
-  font-family: sans-serif;
+  width:100px;
+height:100px;
+background: linear-gradient(90deg, #16222A 10%, #3A6073 90%);
+font-family: 'Raleway', sans-serif;
+}
+
+.middlePage {
+	width: 680px;
+    height: 500px;
+    position: absolute;
+    top:200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+button .log{
+  min-width: 200px;
 }
