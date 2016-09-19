@@ -4,7 +4,7 @@ import AppContainer from '../containers/AppContainer';
 import Home from '../components/Home';
 import Login from '../components/Login';
 import SignUp from '../components/SignUp';
-import Graph from '../components/Graph';
+
 
 const router = (
   <Router history={browserHistory}>
@@ -12,7 +12,6 @@ const router = (
       <IndexRoute component={Login} />
       <Route path="/signup" component={SignUp}/>
       <Route path="/home/(:userUID)" component={Home}/>
-      <Route path="/graph" component={Graph}/>
     </Route>
   </Router>
 )
