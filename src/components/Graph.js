@@ -40,7 +40,7 @@ class PieChart extends Component{
   render() {
     return (
       <div className={"my-pretty-chart-container"}>
-        <Chart chartType="PieChart" data={this.state.data} options={this.state.options} width={"400px"} height={"400px"} legend_toggle={true} />
+        <Chart chartType="PieChart" data={this.state.data} options={this.state.options} width={"100%"} height={"400px"} legend_toggle={true} />
       </div>
     )
   }
