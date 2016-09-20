@@ -22,7 +22,7 @@ class Loans extends Component{
    }
   render () {
     return (
-      <div>
+      <div className="expenses">
         <p>
           <span>Loans</span>
           <input type='range' min={0} max={1000} onChange={this.handleChangeLoans.bind(this)}/>
