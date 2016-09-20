@@ -5,14 +5,38 @@ class HomeContainer extends Component{
   render(){
     return(
       <div className="home">
-      <label> Income</label><input type="range" className="income"/>
-      <label> Housing</label><input type="range" className="expenses"/>
-      <label> Transportation</label><input type="range" className="expenses"/>
-      <label> Utilities</label><input type="range" className="expenses"/>
-      <label> Entertainment</label><input type="range" className="expenses"/>
-      <label> Loans</label><input type="range" className="expenses"/>
-      <label> Food</label><input type="range" className="expenses"/>
-      <label> Miscellaneous</label><input type="range" className="expenses"/>
+        <form>
+          <label> Income</label><input type="range" className="income"/>
+        </form>
+        <form>
+          <label> Housing</label><input type="range" className="expenses"/>
+
+        </form>
+        <form>
+          <label> Transportation</label><input type="range" className="expenses"/>
+
+        </form>
+        <form>
+          <label> Utilities</label><input type="range" className="expenses"/>
+
+        </form>
+        <form>
+          <label> Entertainment</label><input type="range" className="expenses"/>
+
+        </form>
+        <form>
+          <label> Loans</label><input type="range" className="expenses"/>
+
+        </form>
+        <form>
+          <label> Food</label><input type="range" className="expenses"/>
+
+        </form>
+        <form>
+          <label> Miscellaneous</label><input type="range" className="expenses"/>
+
+        </form>
+
 
       </div>
     )
