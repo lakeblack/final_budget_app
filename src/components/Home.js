@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import Graph from '../components/Graph';
+import Nav from './Nav'
+import HomeContainer from '../containers/HomeContainer'
 
 class Home extends Component{
   render(){
     return(
       <div>
-        <h1>Home.js</h1>
-        <Graph />
+        <Nav/>
+        <HomeContainer/>
+        <Graph/>
       </div>
     )
   }

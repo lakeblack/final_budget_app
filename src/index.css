@@ -34,3 +34,19 @@ button{
   margin: 0;
   min-width: 182px;
 }
+.income{
+  max-width: 70%;
+}
+.expenses{
+  max-width: 60%;
+}
+.home{
+  display: inline-flex;
+  flex-flow: column;
+  min-width: 30%;
+}
+.my-pretty-chart-container{
+  width: 70%;
+  float: right;
+  display: flex;
+}
