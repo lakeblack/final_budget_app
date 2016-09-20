@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router'
 import HomeContainer from '../containers/HomeContainer'
-import Graph from '../components/Graph';
-
+import Graph from './Graph'
+import Expenses from './Expenses'
 
 class Dashboard extends Component{
   render(){
@@ -36,6 +36,7 @@ class Dashboard extends Component{
          <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
            <HomeContainer />
            <Graph/>
+           <Expenses />
          </div>
        </div>
      </div>

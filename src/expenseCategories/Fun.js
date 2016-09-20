@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Chart from './Chart.js'
 import base from '../config/base'
 
 class Fun extends Component{
