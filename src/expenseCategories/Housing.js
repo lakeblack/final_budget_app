@@ -22,7 +22,7 @@ class Housing extends Component{
    }
   render () {
     return (
-      <div>
+      <div className="expenses">
         <p>
           <span>Housing</span>
           <input type='range' min={0} max={2000} onChange={this.handleChange.bind(this)}/>
