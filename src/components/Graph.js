@@ -13,7 +13,7 @@ class PieChart extends Component{
   componentDidMount() {
 
   let options = {
-      title: 'Expenses Comparison',
+      /*title: 'Expenses Comparison',*/
       backgroundColor: 'none',
       is3D: true,
       legend: {textStyle: {color: 'white'}},
@@ -22,9 +22,11 @@ class PieChart extends Component{
 
   let data = [
     ['Expense Category', 'Monthly Cost'],
-      ['Rent',     750],
-      ['Loans',      450],
-      ['Food',  600],
+      ['Housing', 750],
+      ['Utilities', 175],
+      ['Transportation', 400],
+      ['Loans', 450],
+      ['Food', 600],
       ['Fun', 200],
       ['Miscelleanous',    200]
   ];
