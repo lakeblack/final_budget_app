@@ -5,6 +5,7 @@ import Graph from './Graph'
 import Expenses from './Expenses'
 import Income from './Income'
 import base from '../config/base'
+import TotalExpenses from './TotalExpenses'
 
 class Dashboard extends Component{
   constructor(){
@@ -44,7 +45,7 @@ class Dashboard extends Component{
                               Total Income:{this.state.totalIncome}
                             </li>
                             <li className="dashTotal">
-                              Total Expenses:{this.state.totalExpenses}
+                              Total Expenses:<TotalExpenses/>
                             </li>
                             <li className="dashTotal">
                               Surplus:{this.state.surplus < 0 ? "You don't make enough fucking money" : this.state.surplus}

@@ -10,6 +10,7 @@
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-google-charts": "^1.1.1",
+    "react-nouislider": "^1.14.0",
     "react-router": "^2.8.1"
   },
   "scripts": {
