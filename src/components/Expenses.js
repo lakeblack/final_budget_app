@@ -6,6 +6,7 @@ import Fun from '../expenseCategories/Fun'
 import Miscellaneous from '../expenseCategories/Miscellaneous'
 import Transportation from '../expenseCategories/Transportation'
 import Utilities from '../expenseCategories/Utilities'
+import TotalExpenses from './TotalExpenses'
 
 class Expenses extends Component{
   render () {
@@ -18,6 +19,7 @@ class Expenses extends Component{
         <Miscellaneous />
         <Transportation />
         <Utilities />
+        <TotalExpenses />
       </div>
     )
   }
