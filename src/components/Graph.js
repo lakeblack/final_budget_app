@@ -20,7 +20,8 @@ class PieChart extends Component{
         legend: {textStyle: {color: 'white'}},
         titleTextStyle: {color: 'white'}
       },
-      myExpenses: []
+      myExpenses: [],
+      setTotalExpenses: ''
     }
   }
   componentDidMount() {
@@ -32,6 +33,10 @@ class PieChart extends Component{
     base.update(`${localStorage.UID}/myExpenses`, {
       data: {0: {0:'Expense', 1:'Cost'}}
     });
+    this.rebaseRef = base.syncState(`${localStorage.UID}/totalExpenses`, {
+      context: this,
+      state: 'setTotalExpenses'
+    });
   }
    componentWillUnmount(){
      base.removeBinding(this.rebaseRef);
@@ -42,6 +47,12 @@ class PieChart extends Component{
      this.setState({
          'data' : expensesArray
       });
+      let overallExpensesArray = this.state.myExpenses.slice(1, this.state.myExpenses.length);
+      let totalExpenses = overallExpensesArray.map((expense, index) => expense[1]).reduce((total, current) => total + current);
+      console.log(totalExpenses);
+      this.setState({
+          'setTotalExpenses' : totalExpenses
+       });
 
    }
   render() {
