@@ -12,7 +12,15 @@ class Fun extends Component{
     this.setState({fun: parseInt(event.target.value)});
   }
   componentDidMount() {
-    this.rebaseRef = base.syncState(`myExpenses/Fun/1`, {
+    base.update(`${localStorage.UID}/myExpenses/Fun`, {
+      data: {0: 'Fun'},
+        then(err){
+          if(!err){
+            console.log(err);
+          }
+        }
+    });
+    this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Fun/1`, {
       context: this,
       state: 'fun'
     });
