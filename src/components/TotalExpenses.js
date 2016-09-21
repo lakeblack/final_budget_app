@@ -12,7 +12,8 @@ class TotalExpenses extends Component{
       ['Loans', 450],
       ['Miscelleanous', 200],
       ['Transportation', 100],
-      ['Utilities', 175]]
+      ['Utilities', 175]],
+      income: 1500
     }
   }
   componentDidMount() {
@@ -21,16 +22,23 @@ class TotalExpenses extends Component{
       state: 'myExpenses',
       asArray: true
     });
+    this.rebaseRef = base.syncState(`${localStorage.UID}/Income`, {
+      context: this,
+      state: 'income'
+    });
    }
    componentWillUnmount(){
      base.removeBinding(this.rebaseRef);
    }
   render () {
     let runningTotalExpenses = this.state.myExpenses.slice(1,this.state.myExpenses.length).map(expense => expense[1]).reduce((total, current) => total + current);
+    let surplus = this.state.income - runningTotalExpenses;
     return (
-      <span>
-        TotalExpenses Component: {runningTotalExpenses}
-      </span>
+      <div>
+        <p>Income: {this.state.income}</p>
+        <p>TotalExpenses Component: {runningTotalExpenses}</p>
+        <p>Surplus: {surplus < 0 ? "You don't make enough, Ass Hole!" : surplus}</p>
+      </div>
     )
   }
 }
