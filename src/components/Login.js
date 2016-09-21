@@ -26,6 +26,7 @@ class Login extends Component {
     if(error){
       console.log(error);
     } else {
+      localStorage.setItem('UID', authData.uid);
       //change route to /home
       this.context.router.push(`/home/${authData.uid}`);
       console.log(authData);

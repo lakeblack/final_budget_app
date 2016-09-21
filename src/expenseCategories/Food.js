@@ -5,14 +5,23 @@ class Food extends Component{
   constructor(props){
     super(props);
     this.state = {
-      food: 600
+      food: 600,
+      text: 'food'
     }
   }
   handleChange(event){
     this.setState({food: parseInt(event.target.value)});
   }
   componentDidMount() {
-    this.rebaseRef = base.syncState(`myExpenses/Food/1`, {
+    base.update(`${localStorage.UID}/myExpenses/Food`, {
+      data: {0: 'Food'},
+        then(err){
+          if(!err){
+            console.log(err);
+          }
+        }
+    });
+    this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Food/1`, {
       context: this,
       state: 'food'
     });

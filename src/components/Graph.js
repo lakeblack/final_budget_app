@@ -25,12 +25,20 @@ class PieChart extends Component{
     }
   }
   componentDidMount() {
-    this.rebaseRef = base.syncState(`myExpenses`, {
+    this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses`, {
       context: this,
       state: 'myExpenses',
       asArray: true
     });
-   }
+    base.update(`${localStorage.UID}/myExpenses`, {
+      data: {0: {0:'Expense', 1:'Cost'}},
+        then(err){
+          if(!err){
+            console.log(err);
+          }
+        }
+    });
+  }
    componentWillUnmount(){
      base.removeBinding(this.rebaseRef);
    }

@@ -12,7 +12,15 @@ class Loans extends Component{
     this.setState({loans: parseInt(event.target.value)});
   }
   componentDidMount() {
-    this.rebaseRef = base.syncState(`myExpenses/Loans/1`, {
+    base.update(`${localStorage.UID}/myExpenses/Loans`, {
+      data: {0: 'Loans'},
+        then(err){
+          if(!err){
+            console.log(err);
+          }
+        }
+    });
+    this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Loans/1`, {
       context: this,
       state: 'loans'
     });
