@@ -50,6 +50,18 @@ class TotalExpenses extends Component{
         borderRight: "1px solid #176E52",
         textAlign: "center"
       },
+      income: {
+        flexGrow: 1,
+        fontWeight: "bold",
+        bottom: "0px",
+        height: "100%",
+        marginBottom: 0,
+        paddingTop: "10px",
+        paddingBottom: "10px",
+        borderRight: "1px solid #176E52",
+        textAlign: "center",
+        backgroundColor: "#195993"
+      },
       expenses: {
         flexGrow: 1,
         fontWeight: "bold",
@@ -65,7 +77,7 @@ class TotalExpenses extends Component{
     }
     return (
       <div style={styles.block}>
-        <p style={styles.item}>Income: {this.state.income}</p>
+        <p style={styles.income}>Income: {this.state.income}</p>
         <p style={styles.expenses}>Total Expenses: {runningTotalExpenses}</p>
         <p style={styles.item}>Surplus: {surplus < 0 ? "You don't make enough, Ass Hole!" : surplus}</p>
       </div>
