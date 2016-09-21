@@ -28,7 +28,7 @@ class Housing extends Component{
       <div className="expenses">
         <p>
           <span>Housing</span>
-          <input type='range' min={0} max={2000} value={this.state.housing} onChange={this.handleChange.bind(this)}/>
+          <input type='range' min={0} max={2000} step={5} value={this.state.housing} onChange={this.handleChange.bind(this)}/>
           <span>{this.state.housing}</span>
         </p>
       </div>

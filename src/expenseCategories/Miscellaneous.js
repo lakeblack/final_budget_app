@@ -28,7 +28,7 @@ class Miscellaneous extends Component{
       <div className="expenses">
         <p>
           <span>Miscellaneous</span>
-          <input type='range' min={0} max={1000} value={this.state.miscellaneous} onChange={this.handleChange.bind(this)}/>
+          <input type='range' min={0} max={1000} step={5} value={this.state.miscellaneous} onChange={this.handleChange.bind(this)}/>
           <span>{this.state.miscellaneous}</span>
         </p>
       </div>

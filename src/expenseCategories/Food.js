@@ -29,7 +29,7 @@ class Food extends Component{
       <div className="expenses">
         <p>
           <span>Food</span>
-          <input type='range' min={0} max={1000} value={this.state.food} onChange={this.handleChange.bind(this)}/>
+          <input type='range' min={0} max={1000} step={5} value={this.state.food} onChange={this.handleChange.bind(this)}/>
           <span>{this.state.food}</span>
         </p>
       </div>
