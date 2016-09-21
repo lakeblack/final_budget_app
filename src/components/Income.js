@@ -5,7 +5,7 @@ class Income extends Component{
   constructor(props){
     super(props);
     this.state = {
-      Income: 0,
+      Income: 5000,
       text: ''
     }
   }
@@ -13,9 +13,6 @@ class Income extends Component{
     this.setState({Income: parseInt(event.target.value, 10)});
   }
   componentDidMount() {
-    base.update(`${localStorage.UID}/Income`, {
-      data: {0: ''}
-    });
     this.rebaseRef = base.syncState(`${localStorage.UID}/Income`, {
       context: this,
       state: 'Income'
@@ -29,7 +26,7 @@ class Income extends Component{
       <div className="income">
         <p>
           <span>Income</span>
-          <input type='range' min={0} max={999999} onChange={this.handleChange.bind(this)}/>
+          <input type='range' min={0} max={9999} onChange={this.handleChange.bind(this)}/>
           <span>{this.state.Income}</span>
         </p>
       </div>

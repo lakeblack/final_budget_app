@@ -12,7 +12,7 @@ class Dashboard extends Component{
     this.state = {
       totalIncome: "",
       totalExpenses: "",
-      totalSurplus:""
+      surplus:""
     }
   }
   componentDidMount(){
@@ -20,6 +20,15 @@ class Dashboard extends Component{
       context: this,
       state: 'totalIncome'
     });
+    this.rebaseRef = base.syncState(`${localStorage.UID}/totalExpenses`, {
+      context: this,
+      state: 'totalExpenses'
+    });
+    let totalIncome = this.state.totalIncome;
+    let totalExpenses = this.state.totalExpenses;
+    this.setState({
+      surplus: totalIncome - totalExpenses
+    })
   }
   render(){
     return(
@@ -32,10 +41,10 @@ class Dashboard extends Component{
                               Total Income:{this.state.totalIncome}
                             </li>
                             <li>
-                              Total Expenses:
+                              Total Expenses:{this.state.totalExpenses}
                             </li>
                             <li>
-                              Surplus:
+                              Surplus:{this.state.surplus}
                             </li>
                         </ul>
                     </div>
