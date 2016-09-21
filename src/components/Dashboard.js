@@ -24,29 +24,33 @@ class Dashboard extends Component{
       context: this,
       state: 'totalExpenses'
     });
+  }
+  getSurplus(){
     let totalIncome = this.state.totalIncome;
     let totalExpenses = this.state.totalExpenses;
     this.setState({
       surplus: totalIncome - totalExpenses
     })
+
   }
   render(){
     return(
       <div>
         <nav className="navbar navbar-default">
                 <div className="container-fluid">
-                    <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div className="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav navbar-right">
-                            <li>
+                            <li className="dashTotal">
                               Total Income:{this.state.totalIncome}
                             </li>
-                            <li>
+                            <li className="dashTotal">
                               Total Expenses:{this.state.totalExpenses}
                             </li>
-                            <li>
+                            <li className="dashTotal">
                               Surplus:{this.state.surplus}
                             </li>
                         </ul>
+                        <button onClick={this.getSurplus.bind(this)}>Get Surplus</button>
                     </div>
                 </div>
             </nav>
