@@ -182,8 +182,8 @@ input[type=range]::-ms-thumb {
   height: 11.3px;
 }
 input[type=range]:focus::-ms-fill-lower {
-  background: #205928;
+  background: red;
 }
 input[type=range]:focus::-ms-fill-upper {
-  background: #297334;
+  background: red;
 }

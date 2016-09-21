@@ -41,17 +41,12 @@ class Dashboard extends Component{
                 <div className="container-fluid">
                     <div className="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                         <ul className="nav navbar-nav navbar-right">
+
                             <li className="dashTotal">
-                              Total Income:{this.state.totalIncome}
+                              <TotalExpenses/>
                             </li>
-                            <li className="dashTotal">
-                              Total Expenses:<TotalExpenses/>
-                            </li>
-                            <li className="dashTotal">
-                              Surplus:{this.state.surplus < 0 ? "You don't make enough fucking money" : this.state.surplus}
-                            </li>
+
                         </ul>
-                        <button onClick={this.getSurplus.bind(this)}>Get Surplus</button>
                     </div>
                 </div>
             </nav>
