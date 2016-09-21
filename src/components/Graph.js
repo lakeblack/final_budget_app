@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {render} from 'react-dom'
 import {Chart} from 'react-google-charts'
 import base from '../config/base'
 
@@ -31,12 +30,7 @@ class PieChart extends Component{
       asArray: true
     });
     base.update(`${localStorage.UID}/myExpenses`, {
-      data: {0: {0:'Expense', 1:'Cost'}},
-        then(err){
-          if(!err){
-            console.log(err);
-          }
-        }
+      data: {0: {0:'Expense', 1:'Cost'}}
     });
   }
    componentWillUnmount(){

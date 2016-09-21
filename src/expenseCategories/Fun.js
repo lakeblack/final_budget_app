@@ -9,16 +9,11 @@ class Fun extends Component{
     }
   }
   handleChange(event){
-    this.setState({fun: parseInt(event.target.value)});
+    this.setState({fun: parseInt(event.target.value, 10)});
   }
   componentDidMount() {
     base.update(`${localStorage.UID}/myExpenses/Fun`, {
-      data: {0: 'Fun'},
-        then(err){
-          if(!err){
-            console.log(err);
-          }
-        }
+      data: {0: 'Fun'}
     });
     this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Fun/1`, {
       context: this,
