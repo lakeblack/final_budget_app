@@ -9,16 +9,11 @@ class Transportation extends Component{
     }
   }
   handleChange(event){
-    this.setState({transportation: parseInt(event.target.value)});
+    this.setState({transportation: parseInt(event.target.value, 10)});
   }
   componentDidMount() {
     base.update(`${localStorage.UID}/myExpenses/Transportation`, {
-      data: {0: 'Transportation'},
-        then(err){
-          if(!err){
-            console.log(err);
-          }
-        }
+      data: {0: 'Transportation'}
     });
     this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Transportation/1`, {
       context: this,

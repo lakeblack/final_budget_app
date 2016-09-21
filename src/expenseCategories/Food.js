@@ -10,16 +10,11 @@ class Food extends Component{
     }
   }
   handleChange(event){
-    this.setState({food: parseInt(event.target.value)});
+    this.setState({food: parseInt(event.target.value, 10)});
   }
   componentDidMount() {
     base.update(`${localStorage.UID}/myExpenses/Food`, {
-      data: {0: 'Food'},
-        then(err){
-          if(!err){
-            console.log(err);
-          }
-        }
+      data: {0: 'Food'}
     });
     this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Food/1`, {
       context: this,
