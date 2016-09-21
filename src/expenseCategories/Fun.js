@@ -28,7 +28,7 @@ class Fun extends Component{
       <div className="expenses">
         <p>
           <span>Fun</span>
-          <input type='range' min={0} max={1000} onChange={this.handleChange.bind(this)}/>
+          <input type='range' min={0} max={1000} value={this.state.fun} onChange={this.handleChange.bind(this)}/>
           <span>{this.state.fun}</span>
         </p>
       </div>

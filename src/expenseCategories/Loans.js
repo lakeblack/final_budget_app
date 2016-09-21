@@ -28,7 +28,7 @@ class Loans extends Component{
       <div className="expenses">
         <p>
           <span>Loans</span>
-          <input type='range' min={0} max={1000} onChange={this.handleChangeLoans.bind(this)}/>
+          <input type='range' min={0} max={1000} value={this.state.loans} onChange={this.handleChangeLoans.bind(this)}/>
           <span>{this.state.loans}</span>
         </p>
       </div>

@@ -28,7 +28,7 @@ class Utilities extends Component{
       <div className="expenses">
         <p>
           <span>Utilities</span>
-          <input type='range' min={0} max={1000} onChange={this.handleChange.bind(this)}/>
+          <input type='range' min={0} max={1000} value={this.state.utilities} onChange={this.handleChange.bind(this)}/>
           <span>{this.state.utilities}</span>
         </p>
       </div>
