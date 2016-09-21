@@ -26,11 +26,11 @@ class TotalExpenses extends Component{
      base.removeBinding(this.rebaseRef);
    }
   render () {
-    console.log(this.state.myExpenses.slice(1,this.state.myExpenses.length).map(expense => expense[1]).reduce((total, current) => total + current));
+    let runningTotalExpenses = this.state.myExpenses.slice(1,this.state.myExpenses.length).map(expense => expense[1]).reduce((total, current) => total + current);
     return (
-      <div>
-        TotalExpenses Component
-      </div>
+      <span>
+        TotalExpenses Component: {runningTotalExpenses}
+      </span>
     )
   }
 }
