@@ -29,7 +29,7 @@ class Income extends Component{
       <div className="income">
         <p>
           <span>Income</span>
-          <input type='range' min={0} max={999999} onChange={this.handleChange.bind(this)}/>
+          <input type='range' min={0} max={9999} onChange={this.handleChange.bind(this)}/>
           <span>{this.state.Income}</span>
         </p>
       </div>
