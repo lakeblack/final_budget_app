@@ -47,7 +47,7 @@ class Dashboard extends Component{
                               Total Expenses:{this.state.totalExpenses}
                             </li>
                             <li className="dashTotal">
-                              Surplus:{this.state.surplus}
+                              Surplus:{this.state.surplus < 0 ? "You don't make enough fucking money" : this.state.surplus}
                             </li>
                         </ul>
                         <button onClick={this.getSurplus.bind(this)}>Get Surplus</button>
