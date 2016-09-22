@@ -50,36 +50,14 @@ class TotalExpenses extends Component {
         let runningTotalExpenses = this.state.myExpenses.slice(1, this.state.myExpenses.length).map(expense => expense[1]).reduce((total, current) => total + current);
         let surplus = this.state.income - runningTotalExpenses;
         var styles = {
-            item: {
+            total: {
                 flexGrow: 1,
                 fontWeight: "bold",
                 height: "100%",
                 textAlign: "center",
                 backgroundColor: "#A4A5A9",
                 borderRadius: "5px",
-                margin: "10px",
-            },
-            income: {
-                flexGrow: 1,
-                fontWeight: "bold",
-                height: "100%",
-                textAlign: "center",
-                backgroundColor: "#A4A5A9",
-                borderRadius: "5px",
-                margin: "10px",
-
-
-            },
-            expenses: {
-                flexGrow: 1,
-                fontWeight: "bold",
-                bottom: "0px",
-                height: "100%",
-                textAlign: "center",
-                borderRadius: "5px",
-                backgroundColor: "#A4A5A9",
-                margin: "10px",
-
+                margin: "10px"
             },
             footer: {
                 display: "inline-flex",
@@ -92,11 +70,23 @@ class TotalExpenses extends Component {
         }
         return (
             <footer className="col-sm-9 col-sm-offset-1" style={styles.footer}>
-                <p style={styles.income}>Income: {this.state.income}</p>
-                <p style={styles.expenses}>Total Expenses: {runningTotalExpenses}</p>
-                <p style={styles.item}>Surplus: {surplus < 0
-                        ? "You don't make enough, Ass Hole!"
-                        : surplus}</p>
+                <p style={styles.total}>Income:
+                    <span>
+                        { " " + this.state.income}$
+                    </span>
+                </p>
+                <p style={styles.total}>Total Expenses:
+                    <span>
+                        { " " + runningTotalExpenses}$
+                    </span>
+                </p>
+                <p style={styles.total}>Surplus:
+                    <span>
+                        { " " + surplus < 0
+                            ? "You don't make enough, Ass Hole!"
+                            : surplus + "$"}
+                    </span>
+                </p>
 
             </footer>
 
