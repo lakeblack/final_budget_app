@@ -6,14 +6,8 @@ class TotalExpenses extends Component{
     super(props);
     this.state = {
       myExpenses: [['Expense Category', 'Monthly Cost'],
-      ['Food', 350],
-      ['Fun', 800],
-      ['Housing', 800],
-      ['Loans', 450],
-      ['Miscelleanous', 200],
-      ['Transportation', 100],
-      ['Utilities', 175]],
-      income: 1500
+      ['placeholder', 0]],
+      income: 0
     }
   }
   componentDidMount() {
@@ -78,8 +72,8 @@ class TotalExpenses extends Component{
     return (
       <div style={styles.block}>
         <p style={styles.income}>Income: {this.state.income}</p>
-        <p style={styles.expenses}>Total Expenses: {runningTotalExpenses}</p>
-        <p style={styles.item}>Surplus: {surplus < 0 ? "You don't make enough, Ass Hole!" : surplus}</p>
+        <p style={styles.expenses}>Total Expenses: {!runningTotalExpenses ? 0 : runningTotalExpenses}</p>
+        <p style={styles.item}>Surplus: {!surplus ? 0 : surplus < 0 ? "You don't make enough, Ass Hole!" : surplus}</p>
       </div>
     )
   }
