@@ -20,22 +20,17 @@ class PieChart extends Component{
         legend: {textStyle: {color: 'white'}},
         titleTextStyle: {color: 'white'}
       },
-      myExpenses: [],
-      setTotalExpenses: ''
+      myExpenses: []
     }
   }
   componentDidMount() {
     this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses`, {
       context: this,
-      state: 'myExpenses',
+      state: 'data',
       asArray: true
     });
     base.update(`${localStorage.UID}/myExpenses`, {
       data: {0: {0:'Expense', 1:'Cost'}}
-    });
-    this.rebaseRef = base.syncState(`${localStorage.UID}/totalExpenses`, {
-      context: this,
-      state: 'setTotalExpenses'
     });
   }
    componentWillUnmount(){
@@ -47,19 +42,11 @@ class PieChart extends Component{
      this.setState({
          'data' : expensesArray
       });
-      let overallExpensesArray = this.state.myExpenses.slice(1, this.state.myExpenses.length);
-      let totalExpenses = overallExpensesArray.map((expense, index) => expense[1]).reduce((total, current) => total + current);
-      console.log(totalExpenses);
-      this.setState({
-          'setTotalExpenses' : totalExpenses
-       });
-
-   }
+    }
   render() {
     return (
       <div className={"my-pretty-chart-container"}>
         <Chart chartType="PieChart" data={this.state.data} options={this.state.options} width={"100%"} height={"400px"} legend_toggle={true} />
-        <button onClick={this.handleClick.bind(this)}>Calculate Expenses</button>
       </div>
     )
   }
