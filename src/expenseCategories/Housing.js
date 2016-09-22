@@ -12,9 +12,6 @@ class Housing extends Component{
     this.setState({housing: parseInt(event.target.value, 10)});
   }
   componentDidMount() {
-    base.update(`${localStorage.UID}/myExpenses/Housing`, {
-      data: {0: 'Housing'}
-    });
     this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Housing/1`, {
       context: this,
       state: 'housing'
