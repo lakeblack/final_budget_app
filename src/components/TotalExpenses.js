@@ -54,19 +54,19 @@ class TotalExpenses extends Component {
             <footer className="col-sm-9 col-sm-offset-1" style={styles.footer}>
                 <p style={styles.total}>Income:
                     <span>
-                        { " " + this.state.income}$
+                        { " $" + this.state.income}
                     </span>
                 </p>
                 <p style={styles.total}>Total Expenses:
                     <span>
-                        { " " + runningTotalExpenses}$
+                        { " $" + runningTotalExpenses}
                     </span>
                 </p>
                 <p style={styles.total}>Surplus:
                     <span>
-                        { " " + surplus < 0
-                            ? "You don't make enough, Ass Hole!"
-                            : surplus + "$"}
+                        {surplus < 0
+                            ? " You don't make enough, Ass Hole!"
+                            : " $" + surplus}
                     </span>
                 </p>
 
