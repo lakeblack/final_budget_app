@@ -9,27 +9,9 @@ class TotalExpenses extends Component {
                 [
                     'Expense Category', 'Monthly Cost'
                 ],
-                [
-                    'Food', 350
-                ],
-                [
-                    'Fun', 800
-                ],
-                [
-                    'Housing', 800
-                ],
-                [
-                    'Loans', 450
-                ],
-                [
-                    'Miscelleanous', 200
-                ],
-                [
-                    'Transportation', 100
-                ],
-                ['Utilities', 175]
+                ['placeholder', 0]
             ],
-            income: 1500
+            income: 0
         }
     }
     componentDidMount() {
