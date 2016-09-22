@@ -71,20 +71,17 @@ a{
     background: linear-gradient(90deg, #22333B 10%, #2F4858 90%);;
     border: none;
   }
-
+.nav-sidebar > li > a:hover, .nav-sidebar > li > a:focus{
+  background: none;
+}
 ul{
   text-align: center;
 }
 .glyphicon {
   color: #EDEAE3;
   font-size: 28px;
-  margin: 50px 0 60px 0;
+  margin: 100px 0 100px 0;
 }
-.total{
-  color: #22333B;
-  margin: 15px;
-}
-
 
 /*       Home Page                         */
 .income{
