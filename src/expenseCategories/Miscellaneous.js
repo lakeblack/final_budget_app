@@ -12,9 +12,6 @@ class Miscellaneous extends Component{
     this.setState({miscellaneous: parseInt(event.target.value, 10)});
   }
   componentDidMount() {
-    base.update(`${localStorage.UID}/myExpenses/Miscellaneous`, {
-      data: {0: 'Miscellaneous'}
-    });
     this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Miscellaneous/1`, {
       context: this,
       state: 'miscellaneous'

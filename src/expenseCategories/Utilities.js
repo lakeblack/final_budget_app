@@ -12,9 +12,6 @@ class Utilities extends Component{
     this.setState({utilities: parseInt(event.target.value, 10)});
   }
   componentDidMount() {
-    base.update(`${localStorage.UID}/myExpenses/Utilities`, {
-      data: {0: 'Utilities'}
-    });
     this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses/Utilities/1`, {
       context: this,
       state: 'utilities'

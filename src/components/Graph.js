@@ -29,9 +29,6 @@ class PieChart extends Component{
       state: 'data',
       asArray: true
     });
-    base.update(`${localStorage.UID}/myExpenses`, {
-      data: {0: {0:'Expense', 1:'Cost'}}
-    });
   }
    componentWillUnmount(){
      base.removeBinding(this.rebaseRef);
