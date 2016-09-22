@@ -19,7 +19,6 @@ class Expenses extends Component{
         <Miscellaneous />
         <Transportation />
         <Utilities />
-        <TotalExpenses />
       </div>
     )
   }

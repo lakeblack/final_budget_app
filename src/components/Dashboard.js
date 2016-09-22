@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router'
 import HomeContainer from '../containers/HomeContainer'
 import Graph from './Graph'
@@ -7,71 +7,79 @@ import Income from './Income'
 import base from '../config/base'
 import TotalExpenses from './TotalExpenses'
 
-class Dashboard extends Component{
-  constructor(){
-    super()
-    this.state = {
-      totalIncome: "",
-      totalExpenses: "",
-      surplus:""
+class Dashboard extends Component {
+    constructor() {
+        super()
+        this.state = {
+            totalIncome: "",
+            totalExpenses: "",
+            surplus: ""
+        }
     }
-  }
-  componentDidMount(){
-    this.rebaseRef = base.syncState(`${localStorage.UID}/Income`, {
-      context: this,
-      state: 'totalIncome'
-    });
-    this.rebaseRef = base.syncState(`${localStorage.UID}/totalExpenses`, {
-      context: this,
-      state: 'totalExpenses'
-    });
-  }
-  getSurplus(){
-    let totalIncome = this.state.totalIncome;
-    let totalExpenses = this.state.totalExpenses;
-    this.setState({
-      surplus: totalIncome - totalExpenses
-    })
+    componentDidMount() {
+        this.rebaseRef = base.syncState(`${localStorage.UID}/Income`, {
+            context: this,
+            state: 'totalIncome'
+        });
+        this.rebaseRef = base.syncState(`${localStorage.UID}/totalExpenses`, {
+            context: this,
+            state: 'totalExpenses'
+        });
+    }
+    getSurplus() {
+        let totalIncome = this.state.totalIncome;
+        let totalExpenses = this.state.totalExpenses;
+        this.setState({
+            surplus: totalIncome - totalExpenses
+        })
 
-  }
-  render(){
-    return(
-      <div>
-        <nav className="navbar navbar-default">
+    }
+    render() {
+        return (
+            <div>
+                <nav className="navbar navbar-default">
+                    <div className="container-fluid">
+                        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul className="nav navbar-nav navbar-right">
+                                <li>
+                                    <Link to="/">
+                                        Logout
+                                    </Link>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
                 <div className="container-fluid">
-                    <div className="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                        <ul className="nav navbar-nav navbar-right">
+                    <div className="col-sm-2 col-md-1 sidebar">
+                        <ul className="nav nav-sidebar">
+                            <li>
+                              <Link to={`/home/${localStorage.UID}`}>
+                                <i className="glyphicon glyphicon-usd"></i>
 
-                            <li className="dashTotal">
-                              <TotalExpenses/>
+                              </Link>
                             </li>
+                            <li>
+                              <Link to={`/loan/${localStorage.UID}`}>
+                                <i className="glyphicon glyphicon-credit-card"></i>
 
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to={`/goals/${localStorage.UID}`}>
+
+                                <i className="glyphicon glyphicon-piggy-bank"></i>
+                              </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
-            </nav>
 
-     <div className="container-fluid">
-         <div className="col-sm-2 col-md-1 sidebar">
-           <ul className="nav nav-sidebar">
-             <li><i className="glyphicon glyphicon-user"></i></li>
-             <li><i className="glyphicon glyphicon-usd"></i></li>
-             <li><i className="glyphicon glyphicon-credit-card"></i></li>
-             <li><i className="glyphicon glyphicon-piggy-bank"></i></li>
-             <li><i className="glyphicon glyphicon-calendar"></i></li>
-           </ul>
-         </div>
-         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-           <Income/>
-           <Graph/>
-           <Expenses />
-         </div>
-     </div>
+            </div>
 
-     </div>
-
-    )
-  }
+        )
+    }
 }
 
 export default Dashboard;

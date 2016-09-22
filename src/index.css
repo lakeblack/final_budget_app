@@ -1,7 +1,7 @@
 body {
 padding: 0;
 margin:0;
-background: #DADDD8;
+background: #EDEAE3;
 }
 
 /*                Login Page   */
@@ -10,7 +10,7 @@ background: #DADDD8;
   margin: 0;
 }
 .loginPage{
-  color: #DADDD8;
+  color: #EDEAE3;
   margin: auto auto;
   padding: 0;
   left:0;
@@ -33,10 +33,10 @@ font-family: 'Raleway', sans-serif;
 }
 .panel-info{
   background: linear-gradient(90deg, #7798AB 10%, #9AC2C9 90%);
-  border: 1px solid #DADDD8;
+  border: 1px solid #EDEAE3;
 }
 .panel-info > .panel-heading{
-  background: #DADDD8;
+  background: #EDEAE3;
 }
 .btn{
   min-width: 200px;
@@ -50,7 +50,11 @@ font-family: 'Raleway', sans-serif;
 /*                Dashboard   */
 
 .navbar{
-  background: #EDEDED;
+  background: #A4A5A9;
+}
+a{
+  color: #22333B;
+
 }
 .dashTotal{
   margin: 5px;
@@ -72,7 +76,7 @@ ul{
   text-align: center;
 }
 .glyphicon {
-  color: #DADDD8;
+  color: #EDEAE3;
   font-size: 28px;
   margin: 50px 0 60px 0;
 }
@@ -99,6 +103,7 @@ ul{
   float: right;
   display: flex;
 }
+
 
 input[type=range] {
   -webkit-appearance: none;
