@@ -29,7 +29,7 @@ class Login extends Component {
       localStorage.setItem('UID', authData.uid);
       //change route to /home
       this.context.router.push(`/home/${authData.uid}`);
-      console.log(authData);
+      //console.log(authData);
     }
   }
 
