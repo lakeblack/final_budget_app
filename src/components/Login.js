@@ -39,30 +39,16 @@ class Login extends Component {
 
   createUser(email, password) {
      base.createUser({email, password}, function(error, authData) {
-       console.log(authData);
+       console.log(authData.uid);
        base.update(`${authData.uid}/myExpenses`, {
-         data: {0: {0:'Expense', 1:'Cost'}}
-       });
-       base.update(`${authData.uid}/myExpenses/Food`, {
-         data: {0: 'Food', 1: 0}
-       });
-       base.update(`${authData.uid}/myExpenses/Fun`, {
-         data: {0: 'Fun', 1: 0}
-       });
-       base.update(`${authData.uid}/myExpenses/Housing`, {
-         data: {0: 'Housing', 1: 0}
-       });
-       base.update(`${authData.uid}/myExpenses/Loans`, {
-         data: {0: 'Loans', 1: 0}
-       });
-       base.update(`${authData.uid}/myExpenses/Miscellaneous`, {
-         data: {0: 'Miscellaneous', 1: 0}
-       });
-       base.update(`${authData.uid}/myExpenses/Transportation`, {
-         data: {0: 'Transportation', 1: 0}
-       });
-       base.update(`${authData.uid}/myExpenses/Utilities`, {
-         data: {0: 'Utilities', 1: 0}
+         data: {0: {0:'Expense', 1:'Cost'},
+                1: {0:'Food', 1:0},
+                2: {0:'Fun', 1:0},
+                3: {0:'Housing', 1:0},
+                4: {0:'Loans', 1:0},
+                5: {0:'Miscellaneous', 1:0},
+                6: {0:'Transportation', 1:0},
+                7: {0:'Utilities', 1:0}}
        });
      });
    }
