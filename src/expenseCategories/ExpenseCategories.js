@@ -8,8 +8,7 @@ class ExpenseCategories extends Component{
       categories: [
         ['Expense Category', 'Monthly Cost']
         ['placeholder', 0]
-        ],
-      myArray: []
+        ]
     }
   }
   handleChange(expense, index, event){
@@ -37,25 +36,29 @@ class ExpenseCategories extends Component{
   componentWillUnmount(){
     base.removeBinding(this.ref);
   }
-  handleClick(event){
-    let whatevs = this.state.myArray;
-    let whatevsNumber = this.state.myArray.length;
-    this.setState({myArray: whatevs.concat(whatevsNumber + 1)})
-  }
   render () {
+    let display = this.state.categories.slice(1, this.state.categories.length).map((expense, index) => {
+      if (expense[0] === 'Housing') {
+        return <div className="expenses" key={index}>
+                  <p>
+                    <span>{expense[0]}</span>
+                    <input type='range' min={0} max={2000} step={5} value={expense[1]} onChange={this.handleChange.bind(this, expense, index)}/>
+                    <span>{expense[1]}</span>
+                  </p>
+                </div>
+      }else {
+        return <div className="expenses" key={index}>
+                  <p>
+                    <span>{expense[0]}</span>
+                    <input type='range' min={0} max={1000} step={5} value={expense[1]} onChange={this.handleChange.bind(this, expense, index)}/>
+                    <span>{expense[1]}</span>
+                  </p>
+                </div>
+      }
+    })
     return (
       <div>
-        {this.state.categories.slice(1, this.state.categories.length).map((expense, index) =>
-            <div className="expenses" key={index}>
-              <p>
-                <span>{expense[0]}</span>
-                <input type='range' min={0} max={2000} step={5} value={expense[1]} onChange={this.handleChange.bind(this, expense, index)}/>
-                <span>{expense[1]}</span>
-              </p>
-            </div>
-        )}
-        <button onClick={this.handleClick.bind(this)}>Click Me</button>
-        {this.state.myArray}
+        {display}
       </div>
     )
   }
