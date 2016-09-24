@@ -6,7 +6,7 @@ class ExpenseCategories extends Component{
     super(props);
     this.state = {
       categories: [
-        ['Expense Category', 'Monthly Cost']
+        ['Expense Category', 'Monthly Cost'],
         ['placeholder', 0]
         ]
     }
