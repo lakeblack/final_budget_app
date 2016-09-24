@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import HomeContainer from '../containers/HomeContainer'
+import React, { Component } from 'react'
 import Dashboard from './Dashboard'
 import TotalExpenses from './TotalExpenses'
 import Income from './Income'
