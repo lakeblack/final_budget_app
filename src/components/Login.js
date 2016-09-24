@@ -40,6 +40,9 @@ class Login extends Component {
   createUser(email, password) {
      base.createUser({email, password}, function(error, authData) {
        console.log(authData.uid);
+       base.update(`${authData.uid}`, {
+         data: {'Income': 5000}
+       });
        base.update(`${authData.uid}/myExpenses`, {
          data: {0: {0:'Expense', 1:'Cost'},
                 1: {0:'Food', 1:0},

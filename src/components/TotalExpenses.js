@@ -6,9 +6,7 @@ class TotalExpenses extends Component {
         super(props);
         this.state = {
             myExpenses: [
-                [
-                    'Expense Category', 'Monthly Cost'
-                ],
+                ['Expense Category', 'Monthly Cost'],
                 ['placeholder', 0]
             ],
             income: 0
