@@ -6,14 +6,8 @@ class ExpenseCategories extends Component{
     super(props);
     this.state = {
       categories: [
-        ['My Expenses', 'Value'],
-        ['Food', 0],
-        ['Fun', 10],
-        ['Housing', 20],
-        ['Loans', 30],
-        ['Miscellaneous', 40],
-        ['Transportation', 50],
-        ['Utilities', 60]
+        ['Expense Category', 'Monthly Cost']
+        ['placeholder', 0]
         ],
       myArray: []
     }

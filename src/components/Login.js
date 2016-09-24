@@ -44,7 +44,7 @@ class Login extends Component {
          data: {'Income': 5000}
        });
        base.update(`${authData.uid}/myExpenses`, {
-         data: {0: {0:'Expense', 1:'Cost'},
+         data: {0: {0:'Expense Category', 1:'Monthly Cost'},
                 1: {0:'Food', 1:0},
                 2: {0:'Fun', 1:0},
                 3: {0:'Housing', 1:0},
