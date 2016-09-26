@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import HomeContainer from '../containers/HomeContainer'
 import Dashboard from './Dashboard'
 import TotalExpenses from './TotalExpenses'
-import Income from './Income'
-import Graph from './Graph'
-import Expenses from './Expenses'
 
 class LoanManager extends Component{
   render(){

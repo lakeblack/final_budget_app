@@ -14,7 +14,6 @@ const router = (
       <Route path="/home/(:userUID)" component={Home}/>
         <Route path="/loan/(:userUID)" component={LoanManager}/>
           <Route path="/goals/(:userUID)" component={Goals}/>
-
     </Route>
   </Router>
 )
