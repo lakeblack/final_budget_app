@@ -30,37 +30,59 @@ class TotalExpenses extends Component {
         let runningTotalExpenses = this.state.myExpenses.slice(1, this.state.myExpenses.length).map(expense => expense[1]).reduce((total, current) => total + current);
         let surplus = this.state.income - runningTotalExpenses;
         var styles = {
-            total: {
+            income: {
                 flexGrow: 1,
                 fontWeight: "bold",
                 height: "100%",
                 textAlign: "center",
-                backgroundColor: "#A4A5A9",
+                backgroundColor: "#3084CA",
+                color: "EDEAE3",
+                borderRadius: "5px",
+                margin: "10px"
+            },
+            expenses: {
+                flexGrow: 1,
+                fontWeight: "bold",
+                height: "100%",
+                textAlign: "center",
+                backgroundColor: "#F15458",
+                color: "EDEAE3",
+                borderRadius: "5px",
+                margin: "10px"
+            },
+            surplus: {
+                flexGrow: 1,
+                fontWeight: "bold",
+                height: "100%",
+                textAlign: "center",
+                backgroundColor: "#398E5F",
+                color: "EDEAE3",
                 borderRadius: "5px",
                 margin: "10px"
             },
             footer: {
                 display: "inline-flex",
                 position: "absolute",
-                bottom: "10",
+                bottom: "-100px",
+                left: "-100px",
                 height: "60px",
                 backgroundColor: "transparent",
                 borderRadius: "5px"
             }
         }
         return (
-            <footer className="col-sm-9 col-sm-offset-1" style={styles.footer}>
-                <p style={styles.total}>Income:
+            <footer className="col-sm-9 col-sm-offset-1 col-xs-offset-4" style={styles.footer}>
+                <p style={styles.income}>Income:
                     <span>
                         { " $" + this.state.income}
                     </span>
                 </p>
-                <p style={styles.total}>Total Expenses:
+                <p style={styles.expenses}>Total Expenses:
                     <span>
                         { " $" + runningTotalExpenses}
                     </span>
                 </p>
-                <p style={styles.total}>Surplus:
+                <p style={styles.surplus}>Surplus:
                     <span>
                         {surplus < 0
                             ? " You don't make enough, Ass Hole!"

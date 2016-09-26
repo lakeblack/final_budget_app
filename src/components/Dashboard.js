@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router'
-import HomeContainer from '../containers/HomeContainer'
-import Graph from './Graph'
-import Expenses from './Expenses'
-import Income from './Income'
 import base from '../config/base'
-import TotalExpenses from './TotalExpenses'
 
 class Dashboard extends Component {
     constructor() {
@@ -56,7 +51,7 @@ class Dashboard extends Component {
                         <ul className="nav nav-sidebar">
                             <li>
                               <Link to={`/home/${localStorage.UID}`}>
-                                <i className="glyphicon glyphicon-usd"></i>
+                                <i className="glyphicon glyphicon-user"></i>
 
                               </Link>
                             </li>

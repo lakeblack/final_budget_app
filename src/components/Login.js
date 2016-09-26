@@ -53,6 +53,13 @@ class Login extends Component {
                 6: {0:'Transportation', 1:0},
                 7: {0:'Utilities', 1:0}}
        });
+       base.update(`${localStorage.UID}/myLoans`, {
+         data: {0: {'interestTotal':0, 'monthlyPayment':0, 'months':1, 'principal': 0, 'rate': 0.1, 'type': 'Home'},
+                1: {'interestTotal':0, 'monthlyPayment':0, 'months':1, 'principal': 0, 'rate': 0.1, 'type': 'Auto'},
+                2: {'interestTotal':0, 'monthlyPayment':0, 'months':1, 'principal': 0, 'rate': 0.1, 'type': 'Student'},
+                3: {'interestTotal':0, 'monthlyPayment':0, 'months':1, 'principal': 0, 'rate': 0.1, 'type': 'Personal'},
+                4: {'interestTotal':0, 'monthlyPayment':0, 'months':1, 'principal': 0, 'rate': 0.1, 'type': 'Miscellaneous'}}
+       });
      });
    }
 
