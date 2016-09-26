@@ -66,7 +66,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="container">
+      <div className="loginPage">
         <LoginContainer
           handleSubmit={this.handleSubmit}
           login={this.state.login}
