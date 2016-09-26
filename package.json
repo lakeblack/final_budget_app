@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "jquery": "^3.1.1",
+    "loan-calc": "^0.2.1",
     "re-base": "^2.2.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",

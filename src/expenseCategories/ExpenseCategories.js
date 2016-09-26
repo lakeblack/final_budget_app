@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import base from '../config/base'
-import $ from 'jquery'
 
 class ExpenseCategories extends Component{
   constructor(props){
