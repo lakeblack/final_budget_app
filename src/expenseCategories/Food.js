@@ -33,7 +33,6 @@ class Food extends Component{
         context: this,
         state: 'total'
       });
-      $(".food").hide();
    }
   componentWillUnmount(){
     base.removeBinding(this.ref);
@@ -82,7 +81,7 @@ class Food extends Component{
 
         </div>
         {this.state.subs.map((expense, index) =>
-          <div className="expenses food" key={index}>
+          <div className="expenses food" key={index} style={{display: "none"}}>
             <p>
               <span>{expense.name}:</span>
               <input type='range' value={expense.value} min={0} max={1000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>

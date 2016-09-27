@@ -17,7 +17,7 @@ class PieChart extends Component{
       options: {
         backgroundColor: 'none',
         is3D: true,
-        legend: {textStyle: {color: 'white'}},
+        legend: {textStyle: {color: 'black'}},
         titleTextStyle: {color: 'black'}
       },
       myExpenses: []
