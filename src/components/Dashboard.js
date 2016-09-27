@@ -12,14 +12,18 @@ class Dashboard extends Component {
         }
     }
     componentDidMount() {
-        this.rebaseRef = base.syncState(`${localStorage.UID}/Income`, {
+        this.ref = base.syncState(`${localStorage.UID}/Income`, {
             context: this,
             state: 'totalIncome'
         });
-        this.rebaseRef = base.syncState(`${localStorage.UID}/totalExpenses`, {
+        this.ref2 = base.syncState(`${localStorage.UID}/totalExpenses`, {
             context: this,
             state: 'totalExpenses'
         });
+    }
+    componentWillUnmount(){
+      base.removeBinding(this.ref);
+      base.removeBinding(this.ref2);
     }
     getSurplus() {
         let totalIncome = this.state.totalIncome;
