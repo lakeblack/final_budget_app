@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import base from '../config/base'
+import $ from 'jquery'
 
 class Fun extends Component{
   constructor(props){
@@ -37,11 +38,50 @@ class Fun extends Component{
     base.removeBinding(this.ref);
     base.removeBinding(this.ref2);
   }
+  handleClick(event){
+    $(".fun").toggle("slow");
+  }
   render () {
+    const styles = {
+        container: {
+            position: "relative",
+            background: "#3084CA",
+            color: "#276FA0",
+            width: "300px",
+            height: "100px",
+            borderRadius: "5px"
+        },
+        title: {
+            fontFamily: "Oswald",
+            fontSize: "24px",
+            margin: "10px"
+        },
+        price: {
+            fontFamily: "Abril Fatface",
+            position: "absolute",
+            top: "25px",
+            fontSize: "48px"
+        },
+        icon: {
+            color: "#276FA0",
+            position: "absolute",
+            top: "-68px",
+            right: "0",
+            fontWeight: "900px",
+            fontSize: "78px"
+        },
+    }
     return (
       <div>
+        <div style={styles.container} onClick={this.handleClick.bind(this)}>
+          <p style={styles.title}>Fun</p>
+          <label style={styles.price}>${this.state.total}</label>
+          <i className="glyphicon glyphicon-tasks" style={styles.icon}></i>
+
+
+        </div>
         {this.state.subs.map((expense, index) =>
-          <div className="expenses" key={index}>
+          <div className="expenses fun" key={index}>
             <p>
               <span>{expense.name}:</span>
               <input type='range' value={expense.value} min={0} max={1000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>
@@ -49,9 +89,8 @@ class Fun extends Component{
             </p>
           </div>
         )}
-        <p>Fun: {this.state.total}</p>
-      </div>
 
+      </div>
     )
   }
 }

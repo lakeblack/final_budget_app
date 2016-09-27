@@ -33,6 +33,7 @@ class Food extends Component{
         context: this,
         state: 'total'
       });
+      $(".food").hide();
    }
   componentWillUnmount(){
     base.removeBinding(this.ref);
@@ -42,8 +43,44 @@ class Food extends Component{
     $(".food").toggle("slow");
   }
   render () {
+    const styles = {
+        container: {
+            position: "relative",
+            background: "#3084CA",
+            color: "#276FA0",
+            width: "300px",
+            height: "100px",
+            borderRadius: "5px"
+        },
+        title: {
+            fontFamily: "Oswald",
+            fontSize: "24px",
+            margin: "10px"
+        },
+        price: {
+            fontFamily: "Abril Fatface",
+            position: "absolute",
+            top: "25px",
+            fontSize: "48px"
+        },
+        icon: {
+            color: "#276FA0",
+            position: "absolute",
+            top: "-68px",
+            right: "0",
+            fontWeight: "900px",
+            fontSize: "78px"
+        },
+    }
     return (
       <div>
+        <div style={styles.container} onClick={this.handleClick.bind(this)}>
+          <p style={styles.title}>Food</p>
+          <label style={styles.price}>${this.state.total}</label>
+          <i className="glyphicon glyphicon-tasks" style={styles.icon}></i>
+
+
+        </div>
         {this.state.subs.map((expense, index) =>
           <div className="expenses food" key={index}>
             <p>
@@ -53,7 +90,7 @@ class Food extends Component{
             </p>
           </div>
         )}
-        <p onClick={this.handleClick.bind(this)}>Food: {this.state.total}</p>
+
       </div>
     )
   }
