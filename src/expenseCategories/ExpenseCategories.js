@@ -26,7 +26,7 @@ class ExpenseCategories extends Component{
     //console.log(this.state.categories[index+1][1]);
   }
   onClick(index) {
-    console.log(this.refs[index]);
+    //console.log(this.refs[index]);
       this.setState({
           sliderShow: !this.state.showSlider,
       });
