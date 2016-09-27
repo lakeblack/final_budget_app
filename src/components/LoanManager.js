@@ -4,6 +4,8 @@ import {Chart} from 'react-google-charts'
 import base from '../config/base'
 import Dashboard from './Dashboard'
 import TotalExpenses from './TotalExpenses'
+import $ from 'jquery'
+
 class LoanManager extends Component{
   constructor(props){
     super(props);
@@ -106,6 +108,9 @@ class LoanManager extends Component{
       base.removeBinding(this.ref);
       base.removeBinding(this.ref2);
   }
+  handleClick(loan, event){
+    $(`.${loan.type}`).toggle('slow');
+  }
   render(){
     // console.log(this.state.loans.map((loan, index) =>
     //   "Type:" + loan.type + " " +
@@ -116,7 +121,8 @@ class LoanManager extends Component{
     let currentLoans = this.state.loans.map((loan, index) => {
       if (loan.type === 'Auto'){
         return <div key={index}>
-                  <h3>{loan.type}</h3>
+                  <h3 onClick={this.handleClick.bind(this, loan)}>{loan.type} ${loan.monthlyPayment}</h3>
+                  <div className={`${loan.type}`} style={{display: 'none'}}>
                   <p>Principal
                   <input type='range' value={loan.principal} min={0} max={50000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
                   {loan.principal}
@@ -140,10 +146,12 @@ class LoanManager extends Component{
                   width={"100%"}
                   height={"400px"}
                   legend_toggle={true} />
+                </div>
               </div>
       } else {
         return <div key={index}>
-                  <h3>{loan.type}</h3>
+                  <h3 onClick={this.handleClick.bind(this, loan)}>{loan.type} ${loan.monthlyPayment}</h3>
+                  <div className={`${loan.type}`} style={{display: 'none'}}>
                   <p>Principal
                   <input type='range' value={loan.principal} min={0} max={300000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
                   {loan.principal}
@@ -167,6 +175,7 @@ class LoanManager extends Component{
                   width={"100%"}
                   height={"400px"}
                   legend_toggle={true} />
+                </div>
               </div>
       }
     })
@@ -177,7 +186,7 @@ class LoanManager extends Component{
         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1>Loans</h1>
           {currentLoans}
-          <h3>Total Monthly Payment towards Loans: {this.state.totalLoanPayment}</h3>
+          <h3>Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
         </div>
       </div>
     )
