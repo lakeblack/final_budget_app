@@ -4,7 +4,6 @@ import {Chart} from 'react-google-charts'
 import base from '../config/base'
 import Dashboard from './Dashboard'
 import TotalExpenses from './TotalExpenses'
-
 class LoanManager extends Component{
   constructor(props){
     super(props);
@@ -90,12 +89,12 @@ class LoanManager extends Component{
     this.setState({loans: newArray, totalLoanPayment: currentPayment});
   }
   componentDidMount() {
-      this.rebaseRef = base.syncState(`${localStorage.UID}/myLoans`, {
+      this.ref = base.syncState(`${localStorage.UID}/myLoans`, {
           context: this,
           state: 'loans',
           asArray: true
       });
-      this.rebaseRef2 = base.syncState(`${localStorage.UID}/myExpenses/4/1`, {
+      this.ref2 = base.syncState(`${localStorage.UID}/myExpenses/4/1`, {
           context: this,
           state: 'totalLoanPayment'
       });
@@ -104,9 +103,8 @@ class LoanManager extends Component{
       // });
   }
   componentWillUnmount() {
-      base.removeBinding(this.rebaseRef);
-      base.removeBinding(this.rebaseRef2);
-
+      base.removeBinding(this.ref);
+      base.removeBinding(this.ref2);
   }
   render(){
     // console.log(this.state.loans.map((loan, index) =>
@@ -185,5 +183,4 @@ class LoanManager extends Component{
     )
   }
 }
-
 export default LoanManager

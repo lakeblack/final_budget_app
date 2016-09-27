@@ -13,18 +13,19 @@ class TotalExpenses extends Component {
         }
     }
     componentDidMount() {
-        this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses`, {
+        this.ref = base.syncState(`${localStorage.UID}/myExpenses`, {
             context: this,
             state: 'myExpenses',
             asArray: true
         });
-        this.rebaseRef = base.syncState(`${localStorage.UID}/Income`, {
+        this.ref2 = base.syncState(`${localStorage.UID}/Income`, {
             context: this,
             state: 'income'
         });
     }
     componentWillUnmount() {
-        base.removeBinding(this.rebaseRef);
+        base.removeBinding(this.ref);
+        base.removeBinding(this.ref2);
     }
     render() {
         let runningTotalExpenses = this.state.myExpenses.slice(1, this.state.myExpenses.length).map(expense => expense[1]).reduce((total, current) => total + current);
