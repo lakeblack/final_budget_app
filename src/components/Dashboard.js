@@ -3,14 +3,6 @@ import {Link} from 'react-router'
 import base from '../config/base'
 
 class Dashboard extends Component {
-    constructor() {
-        super()
-        this.state = {
-            totalIncome: "",
-            totalExpenses: "",
-            surplus: ""
-        }
-    }
     componentDidMount() {
         this.ref = base.syncState(`${localStorage.UID}/Income`, {
             context: this,
@@ -24,14 +16,6 @@ class Dashboard extends Component {
     componentWillUnmount(){
       base.removeBinding(this.ref);
       base.removeBinding(this.ref2);
-    }
-    getSurplus() {
-        let totalIncome = this.state.totalIncome;
-        let totalExpenses = this.state.totalExpenses;
-        this.setState({
-            surplus: totalIncome - totalExpenses
-        })
-
     }
     render() {
         return (

@@ -4,7 +4,6 @@ import {Chart} from 'react-google-charts'
 import base from '../config/base'
 import Dashboard from './Dashboard'
 import TotalExpenses from './TotalExpenses'
-
 class LoanManager extends Component{
   constructor(props){
     super(props);
@@ -184,5 +183,4 @@ class LoanManager extends Component{
     )
   }
 }
-
 export default LoanManager
