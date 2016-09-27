@@ -15,6 +15,7 @@ class Expenses extends Component{
         <Food />
         <Fun />
         <Housing/>
+        <Loans/>
         <Miscellaneous/>
         <Transportation/>
         <Utilities/>
