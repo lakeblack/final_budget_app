@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Dashboard from './Dashboard'
 import TotalExpenses from './TotalExpenses'
+import Food from '../expenseCategories/Food'
 
 class Goals extends Component{
   render(){
@@ -9,7 +10,7 @@ class Goals extends Component{
         <Dashboard />
         <TotalExpenses />
           <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-
+            <Food />
           </div>
 
       </div>
