@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import base from '../config/base'
 
-class Food extends Component{
+class Housing extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -23,12 +23,12 @@ class Food extends Component{
     // console.log(this.state.categories[index].value);
   }
   componentDidMount() {
-      this.ref = base.syncState(`${localStorage.UID}/myFood`, {
+      this.ref = base.syncState(`${localStorage.UID}/myHousing`, {
         context: this,
         state: 'subs',
         asArray: true
       });
-      this.ref2 = base.syncState(`${localStorage.UID}/myExpenses/1/1`, {
+      this.ref2 = base.syncState(`${localStorage.UID}/myExpenses/3/1`, {
         context: this,
         state: 'total'
       });
@@ -49,10 +49,11 @@ class Food extends Component{
             </p>
           </div>
         )}
-        <p>Food: {this.state.total}</p>
+        <p>Housing: {this.state.total}</p>
       </div>
+
     )
   }
 }
 
-export default Food;
+export default Housing;
