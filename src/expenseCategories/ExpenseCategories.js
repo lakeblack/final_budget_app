@@ -30,7 +30,7 @@ class ExpenseCategories extends Component{
       this.setState({
           sliderShow: !this.state.showSlider,
       });
-{     /* $(this.refs[index]).toggle(this.state.showSlider)*/}
+    /* $(this.refs[index]).toggle(this.state.showSlider)*/
   }
   componentDidMount() {
       this.ref = base.syncState(`${localStorage.UID}/myExpenses`, {
@@ -102,8 +102,8 @@ class ExpenseCategories extends Component{
                   {this.state.sliderShow
                     ? <input id="categories" type='range' min={0} max={1000} step={5} value={expense[1]} onChange={this.handleChange.bind(this, expense, index)}/>
                       : null}
-                </div>)
-      }
+                </div>
+          )}
     })
     return (
       <div>
