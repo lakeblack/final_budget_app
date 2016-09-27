@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import base from '../config/base'
+import $ from 'jquery'
 
 class Food extends Component{
   constructor(props){
@@ -37,11 +38,14 @@ class Food extends Component{
     base.removeBinding(this.ref);
     base.removeBinding(this.ref2);
   }
+  handleClick(event){
+    $(".food").toggle("slow");
+  }
   render () {
     return (
       <div>
         {this.state.subs.map((expense, index) =>
-          <div className="expenses" key={index}>
+          <div className="expenses food" key={index}>
             <p>
               <span>{expense.name}:</span>
               <input type='range' value={expense.value} min={0} max={1000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>
@@ -49,7 +53,7 @@ class Food extends Component{
             </p>
           </div>
         )}
-        <p>Food: {this.state.total}</p>
+        <p onClick={this.handleClick.bind(this)}>Food: {this.state.total}</p>
       </div>
     )
   }
