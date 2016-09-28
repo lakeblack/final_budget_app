@@ -118,26 +118,44 @@ class LoanManager extends Component{
     //   "Rate:" + loan.rate + " " +
     //   "Months:" + loan.months
     // ));
-    let currentLoans = this.state.loans.map((loan, index) => {
-      if (loan.type === 'Auto'){
-        return <div key={index}>
-                  <h3 onClick={this.handleClick.bind(this, loan)} className='navbar'>{loan.type} <span className='navbar-right'>${loan.monthlyPayment}</span></h3>
-                  <div className={`${loan.type}`} style={{display: 'none'}}>
-                  <p>Principal
-                  <input type='range' value={loan.principal} min={0} max={50000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
-                  {loan.principal}
-                  </p>
-                  <p>Rate
-                  <input type='range' value={loan.rate} min={.1} max={20} step={.1} onChange={this.handleRate.bind(this, loan, index)}/>
-                  {loan.rate}
-                  </p>
-                  <p>Months
-                  <input type='range' value={loan.months} min={1} max={78} step={1} onChange={this.handleMonths.bind(this, loan, index)}/>
-                  {loan.months}
-                  </p>
+    let currentLoans = this.state.loans.map((loan, index) =>
+      <div key={index} style={{minWidth:'45%', margin:'10px'}}>
+          <h3 onClick={this.handleClick.bind(this, loan)}>{loan.type}</h3>
+              <div className={`${loan.type}`}>
+                  { loan.type === 'Auto' ? //ternary operation to account for max principal and max months
+                    <div>
+                      <p>Principal
+                        <input type='range' value={loan.principal} min={0} max={50000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
+                        {loan.principal}
+                        </p>
+                        <p>Rate
+                        <input type='range' value={loan.rate} min={.1} max={20} step={.1} onChange={this.handleRate.bind(this, loan, index)}/>
+                        {loan.rate}
+                        </p>
+                        <p>Months
+                        <input type='range' value={loan.months} min={1} max={78} step={1} onChange={this.handleMonths.bind(this, loan, index)}/>
+                        {loan.months}
+                      </p>
+                    </div>
+                    :
+                    <div>
+                      <p>Principal
+                        <input type='range' value={loan.principal} min={0} max={300000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
+                        {loan.principal}
+                        </p>
+                        <p>Rate
+                        <input type='range' value={loan.rate} min={.1} max={20} step={.1} onChange={this.handleRate.bind(this, loan, index)}/>
+                        {loan.rate}
+                        </p>
+                        <p>Months
+                        <input type='range' value={loan.months} min={1} max={360} step={1} onChange={this.handleMonths.bind(this, loan, index)}/>
+                        {loan.months}
+                      </p>
+                    </div>
+                    }
                   <p>Monthly Payment: {loan.monthlyPayment}</p>
                   <p>Total Interest: {loan.interestTotal}</p>
-                  <Chart className={"my-pretty-chart-container"} chartType="PieChart"
+                  {/* <Chart className={"my-pretty-chart-container"} chartType="PieChart"
                   data={[
                     ['Principal', 'Interest'],
                     ['Principal', loan.principal],
@@ -145,47 +163,17 @@ class LoanManager extends Component{
                   ]}
                   width={"100%"}
                   height={"400px"}
-                  legend_toggle={true} />
+                  legend_toggle={true} /> */}
                 </div>
-              </div>
-      } else {
-        return <div key={index}>
-                  <h3 onClick={this.handleClick.bind(this, loan)} className='navbar'>{loan.type} <span className='navbar-right'>${loan.monthlyPayment}</span></h3>
-                  <div className={`${loan.type}`} style={{display: 'none'}}>
-                  <p>Principal
-                  <input type='range' value={loan.principal} min={0} max={300000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
-                  {loan.principal}
-                  </p>
-                  <p>Rate
-                  <input type='range' value={loan.rate} min={.1} max={20} step={.1} onChange={this.handleRate.bind(this, loan, index)}/>
-                  {loan.rate}
-                  </p>
-                  <p>Months
-                  <input type='range' value={loan.months} min={1} max={360} step={1} onChange={this.handleMonths.bind(this, loan, index)}/>
-                  {loan.months}
-                  </p>
-                  <p>Monthly Payment: {loan.monthlyPayment}</p>
-                  <p>Total Interest: {loan.interestTotal}</p>
-                  <Chart className={"my-pretty-chart-container"} chartType="PieChart"
-                  data={[
-                    ['Principal', 'Interest'],
-                    ['Principal', loan.principal],
-                    ['Interest', loan.interestTotal]
-                  ]}
-                  width={"100%"}
-                  height={"400px"}
-                  legend_toggle={true} />
-                </div>
-              </div>
-      }
-    })
+        </div>
+      )
     return(
       <div>
         <Dashboard />
-        <TotalExpenses />
+        {/* <TotalExpenses /> */}
         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1>Loans</h1>
-          {currentLoans}
+            <div style={{display:'flex', flexWrap:'wrap', maxWidth:'100%'}}>{currentLoans}</div>
           <h3>Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
         </div>
       </div>
