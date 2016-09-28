@@ -121,7 +121,7 @@ class LoanManager extends Component{
     let currentLoans = this.state.loans.map((loan, index) => {
       if (loan.type === 'Auto'){
         return <div key={index}>
-                  <h3 onClick={this.handleClick.bind(this, loan)}>{loan.type} ${loan.monthlyPayment}</h3>
+                  <h3 onClick={this.handleClick.bind(this, loan)} className='navbar'>{loan.type} <span className='navbar-right'>${loan.monthlyPayment}</span></h3>
                   <div className={`${loan.type}`} style={{display: 'none'}}>
                   <p>Principal
                   <input type='range' value={loan.principal} min={0} max={50000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
@@ -150,7 +150,7 @@ class LoanManager extends Component{
               </div>
       } else {
         return <div key={index}>
-                  <h3 onClick={this.handleClick.bind(this, loan)}>{loan.type} ${loan.monthlyPayment}</h3>
+                  <h3 onClick={this.handleClick.bind(this, loan)} className='navbar'>{loan.type} <span className='navbar-right'>${loan.monthlyPayment}</span></h3>
                   <div className={`${loan.type}`} style={{display: 'none'}}>
                   <p>Principal
                   <input type='range' value={loan.principal} min={0} max={300000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
