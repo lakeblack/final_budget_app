@@ -1,11 +1,4 @@
-/*#CCB285
-#f8b195
-#f67280
-#83af9b
-#6c5b7b
-#355c7d
-#2a363b*/
-
+/*
 #23CDE7
 #1EA6AD
 #3084CA
@@ -21,19 +14,44 @@
 #9CB456
 #88994A
 #398E5F
-#2D6D48
+#2D6D48*/
+
+/*#266F95
+#295677
+#193455
+#B9C3B1
+#8B9692
+#656D75
+#464A5A
+#343243
+#1C1C2E
+#0C0B14*/
+
+/*
+#FCC0A1
+#DFA196
+#BF828A
+#9C6380
+#7C497B
+#583A7C
+#0581C0
+#506DCF
+#0C4094
+#092E57
+*/
 
 
-.me p{
-  color: red;
-}
 
 body {
 padding: 0;
 margin:0;
-background: #EDEAE3;
+background: url("https://i.imgsafe.org/d556ad0b13.jpg");
 }
-
+.view{
+  background: linear-gradient(45deg, #193455 25%, #295677 50%, #8B9692 75%);
+  opacity: 0.9;
+  height: 1100px;
+}
 
 /*                Login Page   */
 .loginPage{
@@ -42,42 +60,62 @@ background: #EDEAE3;
   padding: 0;
   left:0;
   min-width:100%;
-  height:1000px;
-max-height:1000px;
-background: linear-gradient(90deg, #22333B 10%, #2F4858 90%);
+  height:1100px;
+background: linear-gradient(45deg, #193455 25%, #295677 50%, #8B9692 75%);
+opacity: 0.95;
 font-family: 'Raleway', sans-serif;
+}
+h1{
+  font-family: 'Mrs Sheppards';
+  font-size: 74px;
+  text-align: center;
+  color:  #BF828A;
 }
 
 .middlePage {
-	width: 680px;
-    height: 500px;
+	width: 30%;
     position: absolute;
-    top:200px;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: 10% auto;
 }
 .panel-info{
-  background: linear-gradient(90deg, #7798AB 10%, #9AC2C9 90%);
-  border: 1px solid #EDEAE3;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
-.panel-info > .panel-heading{
-  background: #EDEAE3;
+
+input[type="text"], input[type="password"]
+{
+    width: 100%;
+    margin: 0;
+    padding: 5px 10px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #FFFFFF;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+    outline: 0;
+    box-shadow: none;
 }
+
 .btn{
-  min-width: 200px;
-  margin: 10px;
-}
-.btn-sm{
   margin: 0;
-  min-width: 182px;
+  min-width: 50%;
+  background:  #BF828A;
 }
 
 /*                Dashboard   */
 
 .navbar{
-  background: #A4A5A9;
+  background: #1C1C2E;
 }
 a{
   color: #22333B;
@@ -95,10 +133,11 @@ a{
     z-index: 1000;
     display: block;
     padding: 20px;
-    background: linear-gradient(90deg, #22333B 10%, #2F4858 90%);
+    background: #1C1C2E;
     border: none;
     overflow: scroll;
     text-align: center;
+    opacity: 1;
   }
 .nav-sidebar > li > a:hover, .nav-sidebar > li > a:focus{
   background: none;
@@ -108,16 +147,28 @@ ul{
 }
 .glyphicon {
   color: #EDEAE3;
-  font-size: 28px;
-  margin: 90px 0 90px 0;
+  font-size: 32px;
+  border-radius: 5px;
+}
+.glyphicon-usd:before {
+  display: flex;
+  margin: 25px;
+}
+.glyphicon-stats:before {
+  display: flex;
+  margin: 25px;
+}
+.glyphicon-thumbs-up:before {
+  display: flex;
+  margin: 25px;
 }
 
 /*       Home Page                         */
-.income{
-  max-width: 70%;
-}
-.expenses{
-  max-width: 30%;
+
+.category{
+  display: inline-flex;
+  background: #8B9692;
+  opacity: 0.3;
 }
 .home{
   display: inline-flex;

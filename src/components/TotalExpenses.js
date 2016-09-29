@@ -6,7 +6,9 @@ class TotalExpenses extends Component {
         super(props);
         this.state = {
             myExpenses: [
-                ['Expense Category', 'Monthly Cost'],
+                [
+                    'Expense Category', 'Monthly Cost'
+                ],
                 ['placeholder', 0]
             ],
             income: 0
@@ -32,66 +34,98 @@ class TotalExpenses extends Component {
         let surplus = this.state.income - runningTotalExpenses;
         var styles = {
             income: {
-                flexGrow: 1,
                 fontWeight: "bold",
                 height: "100%",
                 textAlign: "center",
-                backgroundColor: "#3084CA",
-                color: "EDEAE3",
+                backgroundColor: "#343243",
+                color: "#EDEAE3",
                 borderRadius: "5px",
-                margin: "10px"
+                margin: "10px",
+                display: "inline-flex",
+                width: "250px",
+                height: "100px",
+
+
             },
             expenses: {
-                flexGrow: 1,
                 fontWeight: "bold",
                 height: "100%",
                 textAlign: "center",
-                backgroundColor: "#F15458",
-                color: "EDEAE3",
+                backgroundColor: "#343243",
+                color: "#EDEAE3",
                 borderRadius: "5px",
-                margin: "10px"
+                margin: "10px",
+                display: "inline-flex",
+                width: "250px",
+                height: "100px",
+
+
             },
             surplus: {
-                flexGrow: 1,
                 fontWeight: "bold",
                 height: "100%",
                 textAlign: "center",
-                backgroundColor: "#398E5F",
-                color: "EDEAE3",
+                backgroundColor: "#343243",
+                color: "#EDEAE3",
                 borderRadius: "5px",
-                margin: "10px"
+                margin: "10px",
+                display: "inline-flex",
+                width: "250px",
+                height: "100px",
+
             },
-            footer: {
+            container: {
                 display: "inline-flex",
                 position: "absolute",
-                bottom: "-100px",
-                left: "-100px",
-                height: "60px",
                 backgroundColor: "transparent",
-                borderRadius: "5px"
+                borderRadius: "5px",
+            },
+            title: {
+              margin: "15px",
+            },
+            label: {
+                color: "#FCC0A1",
+                display: "inline-block",
+            },
+            icon:{
+              fontSize: "48px",
+              background: "#FCC0A1",
+              textAlign: "center",
             }
         }
         return (
-            <footer className="col-sm-9 col-sm-offset-1 col-xs-offset-4" style={styles.footer}>
-                <p style={styles.income}>Income:
-                    <span>
-                        { " $" + this.state.income}
+            <div className="col-sm-9 col-sm-offset-1 col-xs-offset-4" style={styles.container}>
+                <div style={styles.income} className="total">
+                  <i className="glyphicon glyphicon-usd" style={styles.icon}></i>
+                    <p style={styles.title}>
+                        Income<br/>
+                        <span style={styles.label}>
+                          { " $" + this.state.income}
+                        </span>
+                    </p>
+                </div>
+                <div style={styles.expenses} className="total">
+                  <i className="glyphicon glyphicon-stats" style={styles.icon}></i>
+                  <p style={styles.title}>
+                    Total Expenses<br/>
+                  <span style={styles.label}>
+                    {" $" + runningTotalExpenses}
+                  </span>
+                  </p>
+                </div>
+                <div style={styles.surplus} className="total">
+                  <i className="glyphicon glyphicon-thumbs-up" style={styles.icon}></i>
+                  <p style={styles.title}>
+                    Surplus<br/>
+                  <span style={styles.label}>
+                    {surplus < 0
+                      ? " You don't make enough, Ass Hole!"
+                      : " $" + surplus}
                     </span>
-                </p>
-                <p style={styles.expenses}>Total Expenses:
-                    <span>
-                        { " $" + runningTotalExpenses}
-                    </span>
-                </p>
-                <p style={styles.surplus}>Surplus:
-                    <span>
-                        {surplus < 0
-                            ? " You don't make enough, Ass Hole!"
-                            : " $" + surplus}
-                    </span>
-                </p>
+                  </p>
+                </div>
 
-            </footer>
+            </div>
 
         )
     }

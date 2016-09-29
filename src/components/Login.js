@@ -13,8 +13,8 @@ class Login extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    let email = event.target.elements[1].value;
-    let password = event.target.elements[2].value;
+    let email = event.target.elements[0].value;
+    let password = event.target.elements[1].value;
     if (this.state.login) {
       base.authWithPassword({email, password}, this.authHandler);
     } else {
@@ -96,7 +96,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="loginPage">
+      <div>
         <LoginContainer
           handleSubmit={this.handleSubmit}
           login={this.state.login}
