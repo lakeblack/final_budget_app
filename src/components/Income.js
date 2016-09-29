@@ -34,13 +34,17 @@ componentWillUnmount() {
 }
 render() {
     const styles = {
+      wrapper:{
+        maxWidth: "30%",
+      },
         container: {
             position: "relative",
             background: "#398E5F",
             color: "#2D6D48",
             width: "300px",
             height: "100px",
-            borderRadius: "5px"
+            borderRadius: "5px",
+            marginTop: "150px",
         },
         title: {
             fontFamily: "Oswald",
@@ -56,7 +60,7 @@ render() {
         icon: {
             color: "#2D6D48",
             position: "absolute",
-            top: "-68px",
+            top: "0",
             right: "0",
             fontWeight: "900",
             fontSize: "78px"

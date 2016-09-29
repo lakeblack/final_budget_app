@@ -55,7 +55,7 @@ class Loans extends Component {
         icon: {
             color: "#276FA0",
             position: "absolute",
-            top: "-68px",
+            top: "0",
             right: "0",
             fontWeight: "900px",
             fontSize: "78px"

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ExpenseCategories from '../expenseCategories/ExpenseCategories'
 import Food from '../expenseCategories/Food'
 import Fun from '../expenseCategories/Fun'
 import Housing from '../expenseCategories/Housing'
