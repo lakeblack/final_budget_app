@@ -20,7 +20,7 @@ function LoginContainer (props){
     <form className="form-horizontal" onSubmit={props.handleSubmit}>
     <fieldset>
 
-      <input id="textinput" name="textinput" type="text" placeholder="Enter User Name" className="form-control input-md"/>
+      <input id="textinput" name="textinput" type="email" placeholder="Enter User Name" className="form-control input-md"/>
       <input id="textinput" name="textinput" type="password" placeholder="Enter Password" className="form-control input-md"/>
       <button id="singlebutton" name="singlebutton" className="btn btn-info btn-sm pull-right">Sign In</button>
       <button onClick={props.toggleLogin} className="btn btn-success btn-sm pull-right">Sign Up</button>
