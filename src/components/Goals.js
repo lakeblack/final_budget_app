@@ -3,6 +3,7 @@ import Dashboard from './Dashboard'
 import TotalExpenses from './TotalExpenses'
 import moment from 'moment';
 import range from 'moment-range'
+import {Chart} from 'react-google-charts'
 
 class Goals extends Component{
   constructor(){
@@ -14,6 +15,7 @@ class Goals extends Component{
       days: "",
       weeks: "",
       months: "",
+      lineData: [['Month', 'Projected', 'Actual'],['placeholder month', 1000, 800]]
     }
   }
   handleChange(event) {
@@ -48,13 +50,34 @@ class Goals extends Component{
   }
   generateChart(event){
     event.preventDefault();
-    for (let i = parseInt(moment(this.state.start).format('M')); i < parseInt(moment(this.state.end).format('M')); i++){
-      console.log(moment(i-1).format('M'));
+    var dateStart = moment(this.state.start);
+    var dateEnd = moment(this.state.end);
+    var timeValues = [['Month', 'Projected', 'Actual']];
+    var i = -1;
+
+    let monthlySavings = this.state.goal / this.state.months;
+
+    while (dateEnd >= dateStart) {
+       i = i+1;
+       timeValues.push([dateStart.format('MMM YYYY'),  monthlySavings * i, 0]);
+       dateStart.add(1,'month');
+       //console.log(timeValues);
     }
-    // console.log("start " + moment(this.state.start).format('MMM'));
-    //console.log(parseInt(moment(this.state.start).format('M')));
-    // console.log("end " + moment(this.state.end).format('MMM'));
-    //console.log(parseInt(moment(this.state.end).format('M')));
+
+    this.setState({lineData: timeValues})
+  }
+  handleInput(point, event){
+    event.preventDefault();
+    let newArray = this.state.lineData.map((item, index) => {
+        if (item[0] === point[0]){
+          return  [point[0], point[1], parseInt(event.target.value, 10)];
+        } else {
+          return item;
+        }
+      }
+    );
+    //console.log(newArray);
+    this.setState({lineData: newArray });
   }
   render(){
     let dailySavings = this.state.goal / this.state.days
@@ -65,23 +88,25 @@ class Goals extends Component{
       <div>
         <Dashboard />
           <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1>Savings Goal</h1>
+            <p>Goal: ${this.state.goal}</p>
+            <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
+
             <input type="date" ref="start" onChange={this.handleStart.bind(this)}/>
             <input type="date" ref="end" onChange={this.handleEnd.bind(this)}/>
-            <button onClick={this.generateChart.bind(this)}>Generate Chart</button>
-            <p>{this.state.start}</p>
-            <p>{this.state.end}</p>
-            <div>
-              <p>Savings Goal</p>
-              <label>${this.state.goal}</label>
-              <i className="glyphicon glyphicon-usd"></i>
-            </div>
-            <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
             <button onClick={this.handleTime.bind(this)}>time left</button>
+            <p>{ dailySavings === Infinity ? null : "days:" + this.state.days + " $" + Math.floor(dailySavings)}</p>
+            <p>{ weeklySavings === Infinity ? null: "weeks:" + this.state.weeks + " $" + Math.floor(weeklySavings)}</p>
+            <p>{ monthlySavings === Infinity ? null: "months:" + this.state.months + " $" + Math.floor(monthlySavings)}</p>
 
-            <p>days:{this.state.days} { dailySavings === Infinity ? 0 : "$" + Math.floor(dailySavings)}</p>
-            <p>weeks:{this.state.weeks} { weeklySavings === Infinity ? 0 : "$" + Math.floor(weeklySavings)}</p>
-            <p>months:{this.state.months} { monthlySavings === Infinity ? 0 : "$" + Math.floor(monthlySavings)}</p>
-
+            <button onClick={this.generateChart.bind(this)}>Generate Chart</button>
+              <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"45%"} height={"400px"}/>
+              {this.state.lineData.slice(1, this.state.lineData.length).map((point, index) =>
+                <div key={index}>
+                  <h4>{point[0]}</h4>
+                  <p>Projected: {point[1]}</p>
+                  <p>Actual:<input type="text" onChange={this.handleInput.bind(this, point)}/></p>
+                </div>)}
           </div>
 
 
