@@ -4,14 +4,15 @@ import TotalExpenses from './TotalExpenses'
 import moment from 'moment';
 import range from 'moment-range'
 import {Chart} from 'react-google-charts'
+import base from '../config/base'
 
 class Goals extends Component{
   constructor(){
     super()
     this.state ={
       goal: 5000,
-      start: "",
-      end: "",
+      start: moment().format('YYYY-MM-DD'),
+      end: moment().format('YYYY-MM-DD'),
       days: "",
       weeks: "",
       months: "",
@@ -53,15 +54,15 @@ class Goals extends Component{
     var dateStart = moment(this.state.start);
     var dateEnd = moment(this.state.end);
     var timeValues = [['Month', 'Projected', 'Actual']];
-    var i = -1;
+    var i = 0;
 
     let monthlySavings = this.state.goal / this.state.months;
 
     while (dateEnd >= dateStart) {
-       i = i+1;
-       timeValues.push([dateStart.format('MMM YYYY'),  monthlySavings * i, 0]);
-       dateStart.add(1,'month');
-       //console.log(timeValues);
+      timeValues.push([dateStart.format('MMM YYYY'),  monthlySavings * i, 0]);
+      dateStart.add(1,'month');
+      i = i+1;
+      //console.log(timeValues);
     }
 
     this.setState({lineData: timeValues})
@@ -79,11 +80,35 @@ class Goals extends Component{
     //console.log(newArray);
     this.setState({lineData: newArray });
   }
+  componentDidMount() {
+    this.ref = base.syncState(`${localStorage.UID}/myGoals/months`, {
+      context: this,
+      state: 'lineData',
+      asArray: true
+    });
+    this.ref2 = base.syncState(`${localStorage.UID}/myGoals/start`, {
+      context: this,
+      state: 'start'
+    });
+    this.ref3 = base.syncState(`${localStorage.UID}/myGoals/end`, {
+      context: this,
+      state: 'end'
+    });
+    this.ref4 = base.syncState(`${localStorage.UID}/myGoals/goal`, {
+      context: this,
+      state: 'goal'
+    });
+   }
+  componentWillUnmount(){
+    base.removeBinding(this.ref);
+    base.removeBinding(this.ref2);
+    base.removeBinding(this.ref3);
+    base.removeBinding(this.ref4);
+  }
   render(){
     let dailySavings = this.state.goal / this.state.days
     let weeklySavings = this.state.goal / this.state.weeks
     let monthlySavings = this.state.goal / this.state.months
-
     return(
       <div>
         <Dashboard />
@@ -105,7 +130,7 @@ class Goals extends Component{
                 <div key={index}>
                   <h4>{point[0]}</h4>
                   <p>Projected: {point[1]}</p>
-                  <p>Actual:<input type="text" onChange={this.handleInput.bind(this, point)}/></p>
+                  <p>Actual:<input type="text" value={point[2]} onChange={this.handleInput.bind(this, point)}/></p>
                 </div>)}
           </div>
 
