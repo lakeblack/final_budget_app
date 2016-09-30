@@ -98,6 +98,7 @@ class Goals extends Component{
       context: this,
       state: 'goal'
     });
+    
    }
   componentWillUnmount(){
     base.removeBinding(this.ref);
