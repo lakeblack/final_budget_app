@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import LoginContainer from '../containers/LoginContainer';
-import base from '../config/base'
-
+import base from '../config/base';
+import moment from 'moment';
 
 class Login extends Component {
   constructor() {
@@ -89,6 +89,13 @@ class Login extends Component {
                 2: {'name':'Electric', 'value':0},
                 3: {'name':'Water and Trash', 'value':0},
                 4: {'name':'Gas', 'value':0}}
+       });
+       base.update(`${authData.uid}/myGoals`, {
+         data: {'goal': 5000,
+                'months': {0: {0:'Monthly', 1:'Projected', 2:'Actual'},
+                          1: {0:'placeholder month', 1:0, 2:0}},
+                'start': moment().format('YYYY-MM-DD'),
+                'end': moment().format('YYYY-MM-DD')}
        });
      });
    }
