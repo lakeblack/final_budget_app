@@ -16,7 +16,11 @@ class Goals extends Component{
       days: "",
       weeks: "",
       months: "",
-      lineData: [['Month', 'Projected', 'Actual'],['placeholder month', 1000, 800]]
+      lineData: [['Month', 'Projected', 'Actual'],['placeholder month', 1000, 800]],
+      areaOptions: {
+          title: 'Projected Savings v Actual Savings',
+          hAxis: {title: 'Month'}
+        }
     }
   }
   handleChange(event) {
@@ -37,6 +41,7 @@ class Goals extends Component{
     this.setState({
       end: endDate,
     })
+
   }
   handleTime(e){
     var start = moment(this.state.start, "YYYY-MM-DD");
@@ -98,7 +103,7 @@ class Goals extends Component{
       context: this,
       state: 'goal'
     });
-    
+
    }
   componentWillUnmount(){
     base.removeBinding(this.ref);
@@ -118,8 +123,8 @@ class Goals extends Component{
             <p>Goal: ${this.state.goal}</p>
             <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
 
-            <input type="date" ref="start" onChange={this.handleStart.bind(this)}/>
-            <input type="date" ref="end" onChange={this.handleEnd.bind(this)}/>
+            <input type="date" value={this.state.start} ref="start" onChange={this.handleStart.bind(this)}/>
+            <input type="date" value={this.state.end} ref="end" onChange={this.handleEnd.bind(this)}/>
             <button onClick={this.handleTime.bind(this)}>time left</button>
             <p>{ dailySavings === Infinity ? null : "days:" + this.state.days + " $" + Math.floor(dailySavings)}</p>
             <p>{ weeklySavings === Infinity ? null: "weeks:" + this.state.weeks + " $" + Math.floor(weeklySavings)}</p>
@@ -128,10 +133,11 @@ class Goals extends Component{
             <button onClick={this.generateChart.bind(this)}>Generate Chart</button>
               <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"45%"} height={"400px"}/>
               {this.state.lineData.slice(1, this.state.lineData.length).map((point, index) =>
-                <div key={index}>
+                <div key={index} style={{color:'white'}}>
                   <h4>{point[0]}</h4>
-                  <p>Projected: {point[1]}</p>
-                  <p>Actual:<input type="text" value={point[2]} onChange={this.handleInput.bind(this, point)}/></p>
+                  <p>Projected: {Math.ceil(point[1])}</p>
+                  <p><input type="range" value={point[2]} min={0} max={this.state.goal + 500} onChange={this.handleInput.bind(this, point)}/></p>
+                  <p>Actual: {point[2]}</p>
                 </div>)}
           </div>
 
