@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import LoanCalc from 'loan-calc'
-import {Chart} from 'react-google-charts'
+// import {Chart} from 'react-google-charts'
 import base from '../config/base'
 import Dashboard from './Dashboard'
-import TotalExpenses from './TotalExpenses'
+// import TotalExpenses from './TotalExpenses'
 import $ from 'jquery'
 
 class LoanManager extends Component{
@@ -172,7 +172,6 @@ class LoanManager extends Component{
         <Dashboard />
         {/* <TotalExpenses /> */}
         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1>Loans</h1>
             <div style={{display:'flex', flexWrap:'wrap', maxWidth:'100%'}}>{currentLoans}</div>
           <h3>Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
         </div>

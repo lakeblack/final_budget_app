@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Dashboard from './Dashboard'
-import TotalExpenses from './TotalExpenses'
+// import TotalExpenses from './TotalExpenses'
 import moment from 'moment';
 import range from 'moment-range'
 import {Chart} from 'react-google-charts'
@@ -61,7 +61,7 @@ class Goals extends Component{
     while (dateEnd >= dateStart) {
       timeValues.push([dateStart.format('MMM YYYY'),  monthlySavings * i, 0]);
       dateStart.add(1,'month');
-      i = i+1;
+      i += 1;
       //console.log(timeValues);
     }
 
@@ -98,7 +98,7 @@ class Goals extends Component{
       context: this,
       state: 'goal'
     });
-    
+
    }
   componentWillUnmount(){
     base.removeBinding(this.ref);
@@ -114,7 +114,6 @@ class Goals extends Component{
       <div>
         <Dashboard />
           <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h1>Savings Goal</h1>
             <p>Goal: ${this.state.goal}</p>
             <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
 

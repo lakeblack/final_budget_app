@@ -43,7 +43,6 @@ class TotalExpenses extends Component {
                 margin: "10px",
                 display: "inline-flex",
                 width: "250px",
-                height: "100px",
 
 
             },
@@ -57,7 +56,6 @@ class TotalExpenses extends Component {
                 margin: "10px",
                 display: "inline-flex",
                 width: "250px",
-                height: "100px",
 
 
             },
@@ -71,7 +69,6 @@ class TotalExpenses extends Component {
                 margin: "10px",
                 display: "inline-flex",
                 width: "250px",
-                height: "100px",
 
             },
             container: {
