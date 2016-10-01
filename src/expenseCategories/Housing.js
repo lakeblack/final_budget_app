@@ -84,7 +84,7 @@ class Housing extends Component{
           <div className="expenses housing" key={index} style={{display: "none"}}>
             <p>
               <span>{expense.name}:</span>
-              <input type='range' value={expense.value} min={0} max={1000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>
+              <input type='range' value={expense.value} min={0} max={2000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>
               <span>{expense.value}</span>
             </p>
           </div>
