@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Dashboard from './Dashboard'
 // import TotalExpenses from './TotalExpenses'
 import moment from 'moment';
-import range from 'moment-range'
+import 'moment-range';
 import {Chart} from 'react-google-charts'
 import base from '../config/base'
 
@@ -19,8 +19,9 @@ class Goals extends Component{
       lineData: [['Month', 'Projected', 'Actual'],['placeholder month', 1000, 800]],
       areaOptions: {
           title: 'Projected Savings v Actual Savings',
-          hAxis: {title: 'Month'},
-          backgroundColor: 'none'
+          hAxis: {title: 'Month', textStyle: {color: 'white'}},
+          vAxis: {textStyle: {color: 'white'}},
+          backgroundColor: 'none',
         }
     }
   }
@@ -147,9 +148,12 @@ class Goals extends Component{
     base.removeBinding(this.ref4);
   }
   render(){
-    let dailySavings = this.state.goal / moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('days');
-    let weeklySavings = this.state.goal / moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('weeks');
-    let monthlySavings = this.state.goal / moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('months');
+    let days = moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('days');
+    let weeks = moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('weeks');
+    let months = moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('months')
+    let dailySavings = this.state.goal / days;
+    let weeklySavings = this.state.goal / weeks;
+    let monthlySavings = this.state.goal / months;
     return(
       <div>
         <Dashboard />
@@ -159,9 +163,9 @@ class Goals extends Component{
 
             <p>Select Start Date: <input type="date" value={this.state.start} ref="start" onChange={this.handleStart.bind(this)}/></p>
             <p>Select End Date: <input type="date" value={this.state.end} ref="end" onChange={this.handleEnd.bind(this)}/></p>
-            <p style={{color:'white'}}>{ dailySavings === Infinity ? null : "days:" + moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('days') + " $" + Math.floor(dailySavings)}</p>
-            <p style={{color:'white'}}>{ weeklySavings === Infinity ? null: "weeks:" + moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('weeks') + " $" + Math.floor(weeklySavings)}</p>
-            <p style={{color:'white'}}>{ monthlySavings === Infinity ? null: "months:" + moment.range(moment(this.state.start, "YYYY-MM-DD"), moment(this.state.end, "YYYY-MM-DD")).diff('months') + " $" + Math.floor(monthlySavings)}</p>
+            <p style={{color:'white'}}>{ dailySavings === Infinity ? null : "days:" + days + " $" + Math.floor(dailySavings)}</p>
+            <p style={{color:'white'}}>{ weeklySavings === Infinity ? null: "weeks:" + weeks + " $" + Math.floor(weeklySavings)}</p>
+            <p style={{color:'white'}}>{ monthlySavings === Infinity ? null: "months:" + months + " $" + Math.floor(monthlySavings)}</p>
 
               <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"45%"} height={"400px"}/>
               {this.state.lineData.slice(1, this.state.lineData.length).map((point, index) =>
