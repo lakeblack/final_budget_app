@@ -49,15 +49,7 @@ background: linear-gradient(45deg, rgba(25, 52, 85, .9) 25%, rgba(41, 86, 119, .
 background-repeat: no-repeat;
 background-attachment: fixed;
 }
-.view{
-  opacity: 0.9;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-.view:after{
 
-}
 
 /*                Login Page   */
 .loginPage{
