@@ -6,7 +6,7 @@ function LoginContainer(props) {
             <div className="middlePage">
               {props.login
                 ? <h1>Budgetify</h1>
-              : null}
+              : <h1>Click Sign Up</h1>}
                 <div className="panel panel-info">
                     <div className="panel-body">
                         <div className="row">

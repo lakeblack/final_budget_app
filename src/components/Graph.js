@@ -18,7 +18,11 @@ class PieChart extends Component{
         backgroundColor: 'none',
         is3D: true,
         legend: {textStyle: {color: 'black'}},
-        titleTextStyle: {color: 'black'}
+        titleTextStyle: {color: 'black'},
+        colors: ["#FF3298","#33B5E5","#AA66CC","#99CC00","#FFBB33","#FF8800","#FF4444"]
+      },
+      bar: {
+        backgroundColor: 'red',
       },
       myExpenses: []
     }
@@ -44,7 +48,7 @@ class PieChart extends Component{
     return (
       <div className={"my-pretty-chart-container"}>
         <Chart style={{minWidth:'45%'}} chartType="PieChart" data={this.state.data} options={this.state.options} width={"100%"} height={"400px"} legend_toggle={true} />
-        <Chart chartType="Bar" data={this.state.data} width={"100%"} height={"400px"} />
+        <Chart chartType="Bar" data={this.state.data} width={"100%"} height={"400px"} options={this.state.bar}/>
       </div>
     )
   }

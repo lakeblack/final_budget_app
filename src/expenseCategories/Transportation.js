@@ -45,14 +45,14 @@ class Transportation extends Component{
     const styles = {
         container: {
             position: "relative",
-            background: "#3084CA",
+            background: "#FF8800",
             color: "#276FA0",
             width: "300px",
             height: "100px",
             borderRadius: "5px"
         },
         title: {
-            fontFamily: "Oswald",
+            fontFamily: "Yatra One",
             fontSize: "24px",
             margin: "10px"
         },

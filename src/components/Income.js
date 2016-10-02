@@ -47,7 +47,7 @@ render() {
             marginTop: "150px",
         },
         title: {
-            fontFamily: "Oswald",
+            fontFamily: "Yatra One",
             fontSize: "24px",
             margin: "10px"
         },

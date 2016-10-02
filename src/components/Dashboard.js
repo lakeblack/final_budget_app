@@ -3,6 +3,14 @@ import {Link} from 'react-router'
 
 class Dashboard extends Component {
     render() {
+      let styles={
+        title:{
+          position: "relative",
+          color: "#EDEAE3",
+          fontSize: "18px",
+          fontFamily: "Yatra One",
+        }
+      }
         return (
             <div>
                 <div className="container-fluid">
@@ -11,20 +19,21 @@ class Dashboard extends Component {
                             <li>
                               <Link to={`/home/${localStorage.UID}`}>
                                 <i className="glyphicon glyphicon-dashboard"></i>
-                                Home
+                                <p style={styles.title}>Home</p>
                               </Link>
                             </li>
                             <li>
                               <Link to={`/loan/${localStorage.UID}`}>
                                 <i className="glyphicon glyphicon-credit-card"></i>
-                                Loans
+                                  <p style={styles.title}>Loans</p>
                               </Link>
-                            </li>
+                            </li >
                             <li>
                               <Link to={`/goals/${localStorage.UID}`}>
 
                                 <i className="glyphicon glyphicon-piggy-bank"></i>
-                                Goals
+                                  <p style={styles.title}>Goals</p>
+
 
                               </Link>
                             </li>
@@ -32,7 +41,8 @@ class Dashboard extends Component {
                               <Link to="/">
 
                                 <i className="glyphicon glyphicon-log-out"></i>
-                                Logout
+                                  <p style={styles.title}>Logout</p>
+
                               </Link>
                             </li>
                         </ul>
