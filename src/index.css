@@ -107,16 +107,6 @@ input[type="text"], input[type="password"]
 
 /*                Dashboard   */
 
-.navbar{
-  background: #1C1C2E;
-}
-a{
-  color: #22333B;
-
-}
-.dashTotal{
-  margin: 5px;
-}
 
 .sidebar{
     position: fixed;
@@ -125,11 +115,10 @@ a{
     left: 0;
     z-index: 1000;
     display: block;
-    padding: 20px;
+    padding: 0;
     background: #1C1C2E;
     border: none;
     overflow: scroll;
-    text-align: center;
     opacity: 1;
   }
 .nav-sidebar > li > a:hover, .nav-sidebar > li > a:focus{
@@ -141,7 +130,6 @@ ul{
 .glyphicon {
   color: #EDEAE3;
   font-size: 32px;
-  border-radius: 5px;
 }
 .glyphicon-usd:before {
   display: flex;
