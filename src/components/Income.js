@@ -8,7 +8,7 @@ class Income extends Component {
         this.state = {
             income: 5000,
             text: '',
-            showSlider: false,
+            showSlider: false
         }
     }
     handleChange(event) {
@@ -17,69 +17,69 @@ class Income extends Component {
         });
     }
     onClick(e) {
-      console.log("im trying");
         this.setState({
-            sliderShow: !this.state.showSlider,
+            sliderShow: !this.state.showSlider
         });
         $('#toggle').toggle(this.state.showSlider.show)
     }
-componentDidMount() {
-    this.rebaseRef = base.syncState(`${localStorage.UID}/Income`, {
-        context: this,
-        state: 'income'
-    });
-}
-componentWillUnmount() {
-    base.removeBinding(this.rebaseRef);
-}
-render() {
-    const styles = {
-      wrapper:{
-        maxWidth: "30%",
-      },
-        container: {
-            position: "relative",
-            background: "#398E5F",
-            color: "#2D6D48",
-            width: "300px",
-            height: "100px",
-            borderRadius: "5px",
-            marginTop: "150px",
-        },
-        title: {
-            fontFamily: "Yatra One",
-            fontSize: "24px",
-            margin: "10px"
-        },
-        price: {
-            fontFamily: "Abril Fatface",
-            position: "absolute",
-            top: "25px",
-            fontSize: "48px"
-        },
-        icon: {
-            color: "#2D6D48",
-            position: "absolute",
-            top: "0",
-            right: "0",
-            fontWeight: "900",
-            fontSize: "78px"
-        },
-    }
-    return (
-        <div className="income">
-            <div style={styles.container} onClick={this.onClick.bind(this)}>
-                <p style={styles.title}>Income</p>
-                <label style={styles.price}>${this.state.income}</label>
-                <i className="glyphicon glyphicon-usd" style={styles.icon}></i>
-            </div>
-            {this.state.sliderShow
-                ? <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.income} onChange={this.handleChange.bind(this)}/>
-                : null}
 
-        </div>
-    )
-}
+    componentDidMount() {
+        this.rebaseRef = base.syncState(`${localStorage.UID}/Income`, {
+            context: this,
+            state: 'income'
+        });
+    }
+    componentWillUnmount() {
+        base.removeBinding(this.rebaseRef);
+    }
+
+    render() {
+        const styles = {
+            wrapper: {
+                background: "#343243",
+                width: "300px",
+                borderRadius: "5px",
+                margin: "auto auto"
+
+            },
+            container: {
+                position: "relative",
+                background: "#447c69 ",
+                color: "#EDEAE3",
+                width: "300px",
+                borderRadius: "5px",
+                margin: "150px auto 0 auto"
+            },
+            title: {
+                fontFamily: "Yatra One",
+                margin: "10px",
+                fontSize: "32px"
+            },
+            slider: {
+                width: "80%"
+            },
+            price: {
+              float: "right",
+              color: ""
+            }
+
+        }
+        return (
+            <div style={styles.wrapper} onClick={this.onClick.bind(this)}>
+                <div style={styles.container}>
+                    <p style={styles.title}>Income
+                        <span style={styles.price}>
+                            ${this.state.income}
+                        </span>
+                    </p>
+                </div>
+                {this.state.sliderShow
+                    ? <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.income} onChange={this.handleChange.bind(this)}/>
+                    : null}
+
+            </div>
+        )
+    }
 }
 
 export default Income;

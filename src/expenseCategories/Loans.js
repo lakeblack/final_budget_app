@@ -33,40 +33,31 @@ class Loans extends Component {
     }
   render(){
     const styles = {
+      wrapper: {
+        margin: "auto auto",
+      },
         container: {
             position: "relative",
-            background: "#99CC00",
+            background: "#9abf88",
             color: "#276FA0",
             width: "300px",
-            height: "100px",
             borderRadius: "5px"
         },
         title: {
             fontFamily: "Yatra One",
-            fontSize: "24px",
+            fontSize: "28px",
             margin: "10px"
         },
         price: {
-            fontFamily: "Abril Fatface",
-            position: "absolute",
-            top: "25px",
-            fontSize: "48px"
-        },
-        icon: {
-            color: "#276FA0",
-            position: "absolute",
-            top: "0",
-            right: "0",
-            fontWeight: "900px",
-            fontSize: "78px"
+            float: "right"
         },
     }
     return(
-      <div>
+      <div style={styles.wrapper}>
         <div style={styles.container} onClick={this.handleClick.bind(this)}>
-          <p style={styles.title}>Loans</p>
-          <label style={styles.price}>${this.state.total}</label>
-          <i className="glyphicon glyphicon-tasks" style={styles.icon}></i>
+          <p style={styles.title}>Loans
+            <label style={styles.price}>${this.state.total}</label>
+          </p>
 
 
         </div>

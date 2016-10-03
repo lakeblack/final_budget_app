@@ -16,21 +16,20 @@ class PieChart extends Component{
       ['Utilities', 175]],
       pieOptions: {
         backgroundColor: 'none',
-        is3D: true,
+        is3D: false,
+        pieSliceBorderColor: 'none',
         legend: {textStyle: {color: 'black'}},
         titleTextStyle: {color: 'black'},
-        colors: ["#FF3298","#33B5E5","#AA66CC","#99CC00","#FFBB33","#FF8800","#FF4444"]
-      },
-      bar: {
-        backgroundColor: 'red',
+        colors: ["#e279a3","#7fb4c7","#8266ac","#9abf88","#e2975d","#e9d78e","#c94a53"]
       },
       barOptions: {
         backgroundColor: 'none',
-        legend: { position: 'none' }
+        legend: { position: 'none' },
+        colors: ['#9abf88'],
+
       },
-      myExpenses: []
-    }
   }
+}
   componentDidMount() {
     this.rebaseRef = base.syncState(`${localStorage.UID}/myExpenses`, {
       context: this,
@@ -50,14 +49,18 @@ class PieChart extends Component{
     }
   render() {
     return (
-      <div className={"my-pretty-chart-container"}>
+      <div>
+        <div className={"my-pretty-chart-container"}>
 
-        <Chart style={{minWidth:'45%'}} chartType="PieChart" data={this.state.data} options={this.state.pieOptions} width={"100%"} height={"400px"} legend_toggle={true} />
-        <Chart chartType="BarChart" data={this.state.data} options={this.state.barOptions} width={"100%"} height={"400px"} />
+          <Chart chartType="PieChart" data={this.state.data} options={this.state.pieOptions} width={"100%"} height={"400px"} legend_toggle={true} />
+
+          <Chart chartType="BarChart" data={this.state.data} options={this.state.barOptions} width={"100%"} height={"400px"} />
+        </div>
 
       </div>
     )
   }
 }
+
 
 export default PieChart;

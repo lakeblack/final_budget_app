@@ -43,40 +43,31 @@ class Utilities extends Component{
   }
   render () {
     const styles = {
+      wrapper: {
+        margin: "auto auto",
+      },
         container: {
             position: "relative",
-            background: "#FF4444",
+            background: "#c94a53",
             color: "#276FA0",
             width: "300px",
-            height: "100px",
             borderRadius: "5px"
         },
         title: {
             fontFamily: "Yatra One",
-            fontSize: "24px",
+            fontSize: "28px",
             margin: "10px"
         },
         price: {
-            fontFamily: "Abril Fatface",
-            position: "absolute",
-            top: "25px",
-            fontSize: "48px"
-        },
-        icon: {
-            color: "#276FA0",
-            position: "absolute",
-            top: "0",
-            right: "0",
-            fontWeight: "900px",
-            fontSize: "78px"
+            float: "right"
         },
     }
     return (
-      <div>
+      <div style={styles.wrapper}>
         <div style={styles.container} onClick={this.handleClick.bind(this)}>
-          <p style={styles.title}>Utilities</p>
-          <label style={styles.price}>${this.state.total}</label>
-          <i className="glyphicon glyphicon-tasks" style={styles.icon}></i>
+          <p style={styles.title}>Utilities
+            <span style={styles.price}>${this.state.total}</span>
+          </p>
 
 
         </div>

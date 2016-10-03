@@ -10,7 +10,7 @@ class Home extends Component{
     return(
       <div>
         <Dashboard />
-          <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 col-xs-offset-4 main">
+          <div className="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-1 col-xs-offset-4 main">
             <TotalExpenses />
             <Income/>
             <Graph/>
