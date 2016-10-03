@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import base from '../config/base'
 import $ from 'jquery'
+import { Link } from 'react-router'
 
 class Loans extends Component {
   constructor(props){
@@ -68,10 +69,9 @@ class Loans extends Component {
         </div>
         {this.state.subs.map((loan, index) =>
           <div className="expenses loans" key={index}>
-            <p>{loan.type}:</p>
-            <p>${loan.monthlyPayment}</p>
+            <p>{loan.type}: ${loan.monthlyPayment}</p>
           </div>)}
-          <p className="loans" style={{display: "none"}}>(Please see loans page)</p>
+          <p className="loans">(Please see <Link to={`/loan/${localStorage.UID}`}>loans page)</Link></p>
       </div>
     )
   }
