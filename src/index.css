@@ -55,7 +55,7 @@ rgb(60,0,193)    rgb(31,0,102) rgb(15,0,51)*/
 body {
 padding: 0;
 margin:0;
-background: linear-gradient(45deg, rgba(25, 52, 85, .9) 25%, rgba(41, 86, 119, .9) 50%, rgba(139, 150, 146, .9) 75%),url("http://wallpapercave.com/wp/lHD4zJs.jpg");
+background: linear-gradient(45deg, rgba(25, 52, 85, .9) 25%, rgba(41, 86, 119, .9) 50%, rgba(139, 150, 146, .9) 75%),url("http://wallpoper.com/images/00/44/97/48/new-york-city-streets_00449748.jpg");
 background-repeat: no-repeat;
 background-attachment: fixed;
 }
@@ -72,7 +72,7 @@ h1{
   font-family: 'Mrs Sheppards';
   font-size: 74px;
   text-align: center;
-  color:  #BF828A;
+  color:  #e4bf80;
 }
 
 .middlePage {
@@ -112,7 +112,8 @@ input[type="text"], input[type="password"]
 .btn{
   margin: 0;
   min-width: 50%;
-  background:  #BF828A;
+  background:  #e4bf80;
+  color: #1C1C2E;
 }
 
 /*                Dashboard   */
@@ -126,7 +127,7 @@ input[type="text"], input[type="password"]
     z-index: 1000;
     display: block;
     padding: 0;
-    background: #1C1C2E;
+    background: rgba(28, 28, 46, 0.5);
     border: none;
     overflow: scroll;
     opacity: 1;
@@ -138,42 +139,30 @@ ul{
   text-align: center;
 }
 .glyphicon {
-  color: #EDEAE3;
+  color: rgba(237, 234, 227, 0.6);
   font-size: 32px;
 }
 .glyphicon-usd:before {
   display: flex;
   margin: 25px;
-  color: #EDEAE3;
+  color: rgba(237, 234, 227, 0.6);
 }
 .glyphicon-stats:before {
   display: flex;
   margin: 25px;
-  color: #EDEAE3;
+  color: rgba(237, 234, 227, 0.6);
 }
 .glyphicon-thumbs-up:before {
   display: flex;
   margin: 25px;
-  color: #EDEAE3;
+  color: rgba(237, 234, 227, 0.6);
 }
 .glyphicon-thumbs-down:before {
   display: flex;
   margin: 25px;
-  color: #EDEAE3;
+  color: rgba(237, 234, 227, 0.6);
 }
 
-/*       Home Page                         */
-
-.category{
-  display: inline-flex;
-  background: #8B9692;
-  opacity: 0.3;
-}
-.home{
-  display: inline-flex;
-  flex-flow: column;
-  min-width: 30%;
-}
 .my-pretty-chart-container{
   width: 100%;
   display: flex;

@@ -36,19 +36,21 @@ class Income extends Component {
     render() {
         const styles = {
             wrapper: {
-                background: "#343243",
+                background: "rgba(52, 50, 67, 0.7)",
                 width: "300px",
                 borderRadius: "5px",
-                margin: "auto auto"
+                margin: " 150px auto auto auto",
+                paddingBottom: "20px",
+                border: " 1px solid rgba(237, 234, 227, 0.6)",
+
 
             },
             container: {
                 position: "relative",
-                background: "#447c69 ",
-                color: "#EDEAE3",
-                width: "300px",
-                borderRadius: "5px",
-                margin: "150px auto 0 auto"
+                color: "rgba(68, 124, 105, 1) ",
+                width: "280px",
+                borderBottom: " 1px solid rgba(237, 234, 227, 0.6)",
+                margin: "15px auto 15px auto"
             },
             title: {
                 fontFamily: "Oswald",
@@ -56,7 +58,8 @@ class Income extends Component {
                 fontSize: "32px"
             },
             slider: {
-                width: "80%"
+                width: "80%",
+                margin: "auto auto"
             },
             price: {
               float: "right",
@@ -65,7 +68,7 @@ class Income extends Component {
 
         }
         return (
-            <div style={styles.wrapper} onClick={this.onClick.bind(this)}>
+            <div style={styles.wrapper} className="row">
                 <div style={styles.container}>
                     <p style={styles.title}>Income
                         <span style={styles.price}>
@@ -73,13 +76,16 @@ class Income extends Component {
                         </span>
                     </p>
                 </div>
-                {this.state.sliderShow
-                    ? <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.income} onChange={this.handleChange.bind(this)}/>
-                    : null}
-
+<input style={styles.slider} id="toggle" type='range' min={0} max={9999} step={5} value={this.state.income} onChange={this.handleChange.bind(this)}/>
             </div>
         )
     }
 }
 
 export default Income;
+
+
+// onClick={this.onClick.bind(this)}
+// {this.state.sliderShow
+//   ? <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.income} onChange={this.handleChange.bind(this)}/>
+// : null}

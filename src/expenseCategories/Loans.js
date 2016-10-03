@@ -34,23 +34,28 @@ class Loans extends Component {
   render(){
     const styles = {
       wrapper: {
-        margin: "auto auto",
+          background: "rgba(52, 50, 67, 0.7)",
+          width: "300px",
+          borderRadius: "5px",
+          margin: "20px",
+          border: " 1px solid rgba(237, 234, 227, 0.6)",
+          color: "#9abf88",
       },
         container: {
             position: "relative",
-            background: "#9abf88",
-            color: "#276FA0",
-            width: "300px",
-            borderRadius: "5px"
+            width: "280px",
+            borderBottom: "1px solid rgba(237, 234, 227, 0.6)",
+            margin: "10px"
         },
         title: {
-            fontFamily: "Yatra One",
+            fontFamily: "Oswald",
             fontSize: "28px",
             margin: "10px"
         },
         price: {
-            float: "right"
+            float: "right",
         },
+
     }
     return(
       <div style={styles.wrapper}>
@@ -62,9 +67,9 @@ class Loans extends Component {
 
         </div>
         {this.state.subs.map((loan, index) =>
-          <div className="expenses loans" key={index} style={{display: "none"}}>
+          <div className="expenses loans" key={index}>
             <p>{loan.type}:</p>
-            <p>{loan.monthlyPayment}</p>
+            <p>${loan.monthlyPayment}</p>
           </div>)}
           <p className="loans" style={{display: "none"}}>(Please see loans page)</p>
       </div>

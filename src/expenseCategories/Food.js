@@ -44,23 +44,33 @@ class Food extends Component{
   render () {
     const styles = {
       wrapper: {
-        margin: "auto auto",
+          background: "rgba(52, 50, 67, 0.7)",
+          width: "300px",
+          borderRadius: "5px",
+          margin: "20px",
+          border: " 1px solid rgba(237, 234, 227, 0.6)",
+          color: "#e279a3",
       },
         container: {
             position: "relative",
-            background: "#e279a3",
-            color: "#276FA0",
-            width: "300px",
-            borderRadius: "5px"
+            width: "280px",
+            borderBottom: "1px solid rgba(237, 234, 227, 0.6)",
+            margin: "10px"
         },
         title: {
-            fontFamily: "Yatra One",
+            fontFamily: "Oswald",
             fontSize: "28px",
             margin: "10px"
         },
         price: {
             float: "right",
         },
+        slider: {
+            width: "50%",
+            margin: "auto 10px",
+            display: "inline-flex"
+        },
+
     }
     return (
       <div style={styles.wrapper}>
@@ -72,11 +82,11 @@ class Food extends Component{
 
         </div>
         {this.state.subs.map((expense, index) =>
-          <div className="expenses food" key={index} style={{display: "none"}}>
+          <div className="expenses food" key={index}>
             <p>
               <span>{expense.name}:</span>
-              <input type='range' value={expense.value} min={0} max={1000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>
-              <span>{expense.value}</span>
+              <input style={styles.slider} type='range' value={expense.value} min={0} max={1000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>
+              <span>${expense.value}</span>
             </p>
           </div>
         )}

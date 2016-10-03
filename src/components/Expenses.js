@@ -11,25 +11,20 @@ class Expenses extends Component{
   render () {
     const styles = {
       wrapper: {
-        display: "inline-flex",
+        display: "flex",
+        flexWrap: "wrap",
       }
     }
     return (
-      <div style={styles.wrapper}>
-        <div className="col-sm-offset-3">
+        <div style={styles.wrapper}>
           <Food />
           <Fun />
           <Housing/>
-          <Loans/>
-
-        </div>
-        <div className="col-sm-offset-5">
-
           <Miscellaneous/>
           <Transportation/>
           <Utilities/>
+          <Loans/>
         </div>
-      </div>
     )
   }
 }
