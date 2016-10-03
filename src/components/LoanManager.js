@@ -38,7 +38,7 @@ class LoanManager extends Component{
       }
     );
     let currentPayment = newArray.map((loan, index) => loan.monthlyPayment).reduce((total, current) => total + current);
-    this.setState({loans: newArray, totalLoanPayment: currentPayment});
+    this.setState({loans: newArray, totalLoanPayment: Math.ceil(currentPayment)});
   }
   handleRate(loan, index, event){
     let newArray = this.state.loans.map((item, index) => {

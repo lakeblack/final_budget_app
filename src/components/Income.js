@@ -51,7 +51,7 @@ class Income extends Component {
                 margin: "150px auto 0 auto"
             },
             title: {
-                fontFamily: "Yatra One",
+                fontFamily: "Oswald",
                 margin: "10px",
                 fontSize: "32px"
             },

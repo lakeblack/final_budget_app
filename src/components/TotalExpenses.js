@@ -35,14 +35,14 @@ class TotalExpenses extends Component {
         var styles = {
             total: {
                 fontWeight: "bold",
-                fontFamily: "Yatra One",
+                fontFamily: "Oswald",
                 height: "100px",
                 textAlign: "center",
                 backgroundColor: "#343243",
                 color: "#EDEAE3",
                 margin: "10px",
                 display: "inline-flex",
-                width: "250px",
+                width: "300px",
 
 
             },
@@ -118,13 +118,12 @@ class TotalExpenses extends Component {
                   </p>
                 </div>
                 <div style={styles.total}>
-                  <i className="glyphicon glyphicon-thumbs-up" style={styles.icon3}></i>
+                  {surplus < 0 ? <i className="glyphicon glyphicon-thumbs-down" style={styles.icon3}></i> :
+                                 <i className="glyphicon glyphicon-thumbs-up" style={styles.icon3}></i>}
                   <p style={styles.title}>
                     Surplus<br/>
                   <span style={styles.label3}>
-                    {surplus < 0
-                      ? alert(" You don't make enough, Ass Hole!")
-                      : " $" + surplus}
+                    {surplus}
                     </span>
                   </p>
                 </div>

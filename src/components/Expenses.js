@@ -20,6 +20,7 @@ class Expenses extends Component{
           <Food />
           <Fun />
           <Housing/>
+          <Loans/>
 
         </div>
         <div className="col-sm-offset-5">
