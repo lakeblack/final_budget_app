@@ -40,7 +40,7 @@ class TotalExpenses extends Component {
                 textAlign: "center",
                 backgroundColor: "rgba(52, 50, 67, 0.6)",
                 color: "rgba(237, 234, 227, 0.6)",
-                margin: "10px",
+                margin: "20px",
                 display: "inline-flex",
                 width: "300px",
 
@@ -114,7 +114,7 @@ class TotalExpenses extends Component {
         return (
           <div className="row">
 
-            <div className="col-sm-9 col-sm-offset-1 totals" style={styles.container}>
+            <div className="col-sm-12 totals" style={styles.container}>
               <div style={styles.total}>
                 <i className="glyphicon glyphicon-usd" style={styles.icon1}></i>
                 <p style={styles.title}>

@@ -182,7 +182,7 @@ ul.nav-sidebar{
   flex-flow: wrap;
 }
 
-@media screen and (max-width: 760px){
+@media screen and (max-width: 768px){
   .row{
     margin-top: 100px;
   }

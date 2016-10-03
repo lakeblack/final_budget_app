@@ -56,6 +56,9 @@ class Loans extends Component {
         price: {
             float: "right",
         },
+        subCat: {
+      margin: "5px",
+    }
 
     }
     return(
@@ -69,9 +72,9 @@ class Loans extends Component {
         </div>
         {this.state.subs.map((loan, index) =>
           <div className="expenses loans" key={index}>
-            <p>{loan.type}: ${loan.monthlyPayment}</p>
+            <p style={styles.subCat}>{loan.type}: ${loan.monthlyPayment}</p>
           </div>)}
-          <p className="loans">(Please see <Link to={`/loan/${localStorage.UID}`}>loans page)</Link></p>
+          <p style={styles.subCat} className="loans">(Please see <Link to={`/loan/${localStorage.UID}`}>loans page)</Link></p>
       </div>
     )
   }

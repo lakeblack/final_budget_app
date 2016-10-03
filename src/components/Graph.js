@@ -25,7 +25,7 @@ class PieChart extends Component{
       barOptions: {
         backgroundColor: 'none',
         legend: { position: 'none' },
-        colors: ['#202840'],
+        colors: ['#e2975d'],
 
       },
   }
