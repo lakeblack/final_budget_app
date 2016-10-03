@@ -86,7 +86,7 @@ class Utilities extends Component{
             <p>
               <span>{expense.name}:</span>
               <input style={styles.slider} type='range' value={expense.value} min={0} max={1000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>
-              <span>{expense.value}</span>
+              <span>${expense.value}</span>
             </p>
           </div>
         )}
