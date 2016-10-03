@@ -38,8 +38,8 @@ class TotalExpenses extends Component {
                 fontFamily: "Oswald",
                 height: "100px",
                 textAlign: "center",
-                backgroundColor: "#343243",
-                color: "#EDEAE3",
+                backgroundColor: "rgba(52, 50, 67, 0.6)",
+                color: "rgba(237, 234, 227, 0.6)",
                 margin: "10px",
                 display: "inline-flex",
                 width: "300px",
@@ -69,6 +69,11 @@ class TotalExpenses extends Component {
                 display: "inline-block",
                 fontSize: "42px",
             },
+            label3b: {
+                color: "#c94a53",
+                display: "inline-block",
+                fontSize: "42px",
+            },
             icon1:{
               fontSize: "48px",
               background: "#7fb4c7",
@@ -95,40 +100,53 @@ class TotalExpenses extends Component {
               height: "100px",
               width: "100px",
               top: "-0.5px"
+            },
+            icon3b:{
+              fontSize: "48px",
+              background: "#c94a53",
+              textAlign: "center",
+              position:"relative",
+              height: "100px",
+              width: "100px",
+              top: "-0.5px"
             }
         }
         return (
-            <div className="col-sm-9 col-sm-offset-2 col-xs-offset-4" style={styles.container}>
-                <div style={styles.total}>
-                  <i className="glyphicon glyphicon-usd" style={styles.icon1}></i>
-                    <p style={styles.title}>
-                        Income<br/>
-                      <span style={styles.label1}>
-                          { " $" + this.state.income}
-                        </span>
-                    </p>
-                </div>
-                <div style={styles.total}>
-                  <i className="glyphicon glyphicon-stats" style={styles.icon2}></i>
-                  <p style={styles.title}>
-                    Total Expenses<br/>
-                  <span style={styles.label2}>
-                    {" $" + runningTotalExpenses}
-                  </span>
-                  </p>
-                </div>
-                <div style={styles.total}>
-                  {surplus < 0 ? <i className="glyphicon glyphicon-thumbs-down" style={styles.icon3}></i> :
-                                 <i className="glyphicon glyphicon-thumbs-up" style={styles.icon3}></i>}
-                  <p style={styles.title}>
-                    Surplus<br/>
-                  <span style={styles.label3}>
-                    {surplus}
-                    </span>
-                  </p>
-                </div>
+          <div className="row">
 
+            <div className="col-sm-9 col-sm-offset-2" style={styles.container}>
+              <div style={styles.total}>
+                <i className="glyphicon glyphicon-usd" style={styles.icon1}></i>
+                <p style={styles.title}>
+                  Income<br/>
+                <span style={styles.label1}>
+                  { " $" + this.state.income}
+                </span>
+              </p>
             </div>
+            <div style={styles.total}>
+              <i className="glyphicon glyphicon-stats" style={styles.icon2}></i>
+              <p style={styles.title}>
+                Total Expenses<br/>
+              <span style={styles.label2}>
+                {" $" + runningTotalExpenses}
+              </span>
+            </p>
+          </div>
+          <div style={styles.total}>
+            {surplus < 0 ? <i className="glyphicon glyphicon-thumbs-down" style={styles.icon3b}></i> :
+            <i className="glyphicon glyphicon-thumbs-up" style={styles.icon3}></i>}
+              <p style={styles.title}>
+                Surplus<br/>
+
+              {surplus < 0 ? <span style={styles.label3b}>{" $"+ surplus}</span> :
+              <span style={styles.label3}>{" $"+ surplus}</span>}
+
+              </p>
+            </div>
+
+          </div>
+          </div>
 
         )
     }

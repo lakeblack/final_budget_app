@@ -64,7 +64,7 @@ class Login extends Component {
        base.update(`${authData.uid}/myHousing`, {
          data: {0: {'name':'Rent', 'value':0},
                 1: {'name':'Mortgage', 'value':0},
-                2: {'name':'Renovation and Maintenance', 'value':0}}
+                2: {'name':'Maintenance', 'value':0}}
        });
        base.update(`${authData.uid}/myLoans`, {
          data: {0: {'interestTotal':0, 'monthlyPayment':0, 'months':1, 'principal': 0, 'rate': 0.1, 'type': 'Auto'},

@@ -6,14 +6,14 @@ class Dashboard extends Component {
       let styles={
         title:{
           position: "relative",
-          color: "#EDEAE3",
+          color: "rgba(237, 234, 227, 0.6)",
           fontSize: "18px",
-          fontFamily: "Yatra One",
+          fontFamily: "Oswald",
         }
       }
         return (
             <div>
-                <div className="container-fluid">
+                <div className="container-fluid hidden-xs">
                     <div className="col-sm-2 col-md-1 sidebar">
                         <ul className="nav nav-sidebar">
                             <li>
