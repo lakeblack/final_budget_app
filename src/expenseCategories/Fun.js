@@ -70,6 +70,9 @@ class Fun extends Component{
             margin: "auto 10px",
             display: "inline-flex"
         },
+        subCat: {
+          margin: "5px",
+        }
 
     }
     return (
@@ -83,7 +86,7 @@ class Fun extends Component{
         </div>
         {this.state.subs.map((expense, index) =>
           <div className="expenses fun" key={index}>
-            <p>
+            <p style={styles.subCat}>
               <span>{expense.name}:</span>
               <input style={styles.slider} type='range' value={expense.value} min={0} max={1000} step={5} onChange={this.handleChange.bind(this, expense, index)}/>
               <span>${expense.value}</span>

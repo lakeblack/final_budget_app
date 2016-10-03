@@ -157,6 +157,8 @@ class Goals extends Component{
     return(
       <div>
         <Dashboard />
+          <span className="hidden-xs"><Income/></span>
+
           <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h3 style={{color:'white'}}>Goal: ${this.state.goal}</h3>
             <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>

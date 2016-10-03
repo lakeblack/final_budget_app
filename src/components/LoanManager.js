@@ -170,6 +170,7 @@ class LoanManager extends Component{
     return(
       <div style={{color:"white"}}>
         <Dashboard />
+          <span className="hidden-xs"><Income/></span>
         {/* <TotalExpenses /> */}
         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div style={{display:'flex', flexWrap:'wrap', maxWidth:'100%'}}>{currentLoans}</div>

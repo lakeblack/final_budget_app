@@ -25,7 +25,7 @@ class PieChart extends Component{
       barOptions: {
         backgroundColor: 'none',
         legend: { position: 'none' },
-        colors: ['#202840'],
+        colors: ['#e2975d'],
 
       },
   }
@@ -52,9 +52,9 @@ class PieChart extends Component{
       <div>
         <div className={"my-pretty-chart-container"}>
 
-          <Chart chartType="PieChart" data={this.state.data} options={this.state.pieOptions} width={"100%"} height={"400px"} legend_toggle={true} />
+          <Chart chartType="PieChart" data={this.state.data} options={this.state.pieOptions} width={"500px"} height={"400px"} legend_toggle={true} />
 
-          <Chart chartType="BarChart" data={this.state.data} options={this.state.barOptions} width={"100%"} height={"400px"} />
+          <Chart chartType="BarChart" data={this.state.data} options={this.state.barOptions} width={"500px"} height={"400px"} />
         </div>
 
       </div>

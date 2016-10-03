@@ -40,7 +40,7 @@ class TotalExpenses extends Component {
                 textAlign: "center",
                 backgroundColor: "rgba(52, 50, 67, 0.6)",
                 color: "rgba(237, 234, 227, 0.6)",
-                margin: "10px",
+                margin: "20px",
                 display: "inline-flex",
                 width: "300px",
 
@@ -60,7 +60,7 @@ class TotalExpenses extends Component {
                 fontSize: "42px",
             },
             label2: {
-                color: "#c94a53",
+                color: "#e9d78e",
                 display: "inline-block",
                 fontSize: "42px",
             },
@@ -85,7 +85,7 @@ class TotalExpenses extends Component {
             },
             icon2:{
               fontSize: "48px",
-              background: "#c94a53",
+              background: "#e9d78e",
               textAlign: "center",
               position:"relative",
               height: "100px",
@@ -114,7 +114,7 @@ class TotalExpenses extends Component {
         return (
           <div className="row">
 
-            <div className="col-sm-9 col-sm-offset-2" style={styles.container}>
+            <div className="col-sm-12 totals" style={styles.container}>
               <div style={styles.total}>
                 <i className="glyphicon glyphicon-usd" style={styles.icon1}></i>
                 <p style={styles.title}>

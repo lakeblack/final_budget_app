@@ -6,6 +6,7 @@ import Loans from '../expenseCategories/Loans'
 import Miscellaneous from '../expenseCategories/Miscellaneous'
 import Transportation from '../expenseCategories/Transportation'
 import Utilities from '../expenseCategories/Utilities'
+import Income from './Income'
 
 class Expenses extends Component{
   render () {
@@ -13,10 +14,14 @@ class Expenses extends Component{
       wrapper: {
         display: "flex",
         flexWrap: "wrap",
+      },
+      income:{
+        margin: "20px",
       }
     }
     return (
         <div style={styles.wrapper}>
+          <span style={styles.income} className="hidden-sm hidden-md hidden-lg"><Income/></span>
           <Food />
           <Fun />
           <Housing/>
