@@ -9,6 +9,9 @@ class Dashboard extends Component {
           color: "rgba(237, 234, 227, 0.6)",
           fontSize: "18px",
           fontFamily: "Oswald",
+        },
+        navbar:{
+          display: "flex"
         }
       }
         return (

@@ -132,10 +132,23 @@ input[type="text"], input[type="password"]
     overflow: scroll;
     opacity: 1;
   }
-.nav-sidebar > li > a:hover, .nav-sidebar > li > a:focus{
+  .navbar{
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      padding: 0;
+      background: rgba(28, 28, 46, 0.5);
+      border: none;
+      overflow: scroll;
+      opacity: 1;
+    }
+    .income{
+      margin-top: 150px;
+    }
+.nav > li > a:hover, .nav > li > a:focus{
   background: none;
 }
-ul{
+ul.nav-sidebar{
   text-align: center;
 }
 .glyphicon {
@@ -166,8 +179,24 @@ ul{
 .my-pretty-chart-container{
   width: 100%;
   display: flex;
+  flex-flow: wrap;
 }
 
+@media screen and (max-width: 760px){
+  .row{
+    margin-top: 100px;
+  }
+  .income{
+    margin-top: 50px;
+  }
+  .totals{
+    display: flex;
+    flex-flow: wrap;
+  }
+  .my-pretty-chart-container{
+    margin-top: 350px;
+  }
+}
 
 
 
