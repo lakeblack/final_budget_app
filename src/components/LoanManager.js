@@ -5,6 +5,7 @@ import base from '../config/base'
 import Dashboard from './Dashboard'
 // import TotalExpenses from './TotalExpenses'
 import $ from 'jquery'
+import Nav from './nav'
 
 class LoanManager extends Component{
   constructor(props){
@@ -170,8 +171,8 @@ class LoanManager extends Component{
     return(
       <div style={{color:"white"}}>
         <Dashboard />
-          <span className="hidden-xs"><Income/></span>
-        {/* <TotalExpenses /> */}
+          <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
+          {/* <TotalExpenses /> */}
         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div style={{display:'flex', flexWrap:'wrap', maxWidth:'100%'}}>{currentLoans}</div>
           <h3>Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
