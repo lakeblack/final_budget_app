@@ -5,6 +5,7 @@ import moment from 'moment';
 import 'moment-range';
 import {Chart} from 'react-google-charts'
 import base from '../config/base'
+import Nav from './nav'
 
 class Goals extends Component{
   constructor(){
@@ -157,8 +158,7 @@ class Goals extends Component{
     return(
       <div>
         <Dashboard />
-          <span className="hidden-xs"><Income/></span>
-
+          <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
           <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h3 style={{color:'white'}}>Goal: ${this.state.goal}</h3>
             <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
