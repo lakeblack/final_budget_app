@@ -9,15 +9,26 @@ import Utilities from '../expenseCategories/Utilities'
 
 class Expenses extends Component{
   render () {
+    const styles = {
+      wrapper: {
+        display: "inline-flex",
+      }
+    }
     return (
-      <div>
-        <Food />
-        <Fun />
-        <Housing/>
-        <Loans/>
-        <Miscellaneous/>
-        <Transportation/>
-        <Utilities/>
+      <div style={styles.wrapper}>
+        <div className="col-sm-offset-3">
+          <Food />
+          <Fun />
+          <Housing/>
+          <Loans/>
+
+        </div>
+        <div className="col-sm-offset-5">
+
+          <Miscellaneous/>
+          <Transportation/>
+          <Utilities/>
+        </div>
       </div>
     )
   }

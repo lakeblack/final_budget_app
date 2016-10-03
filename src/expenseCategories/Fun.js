@@ -43,41 +43,32 @@ class Fun extends Component{
   }
   render () {
     const styles = {
+      wrapper: {
+        margin: "auto auto",
+      },
         container: {
             position: "relative",
-            background: "#33B5E5",
+            background: "#7fb4c7",
             color: "#276FA0",
             width: "300px",
-            height: "100px",
             borderRadius: "5px"
         },
         title: {
             fontFamily: "Yatra One",
-            fontSize: "24px",
+            fontSize: "28px",
             margin: "10px"
         },
         price: {
-            fontFamily: "Abril Fatface",
-            position: "absolute",
-            top: "25px",
-            fontSize: "48px"
-        },
-        icon: {
-            color: "#276FA0",
-            position: "absolute",
-            top: "0",
-            right: "0",
-            fontWeight: "900px",
-            fontSize: "78px"
+          float: "right",
         },
     }
     return (
-      <div>
+      <div style={styles.wrapper}>
         <div style={styles.container} onClick={this.handleClick.bind(this)}>
-          <p style={styles.title}>Fun</p>
-          <label style={styles.price}>${this.state.total}</label>
-          <i className="glyphicon glyphicon-tasks" style={styles.icon}></i>
+          <p style={styles.title}>Fun
 
+            <span style={styles.price}>${this.state.total}</span>
+          </p>
 
         </div>
         {this.state.subs.map((expense, index) =>

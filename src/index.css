@@ -1,31 +1,32 @@
 /*
-#23CDE7
-#1EA6AD
-#3084CA
-#276FA0
-#9761A9
-#7D528E
-#F15458
-#CE4952
-#DB774B
-#C16544
-#F2AF49
-#D39244
-#9CB456
-#88994A
-#398E5F
-#2D6D48*/
+#23CDE7  #1EA6AD
+#3084CA  #276FA0
+#9761A9  #7D528E
+#F15458  #CE4952
+#DB774B  #C16544
+#F2AF49  #D39244
+#9CB456  #88994A
+#398E5F  #2D6D48*/
 
-/*#266F95
-#295677
-#193455
-#B9C3B1
-#8B9692
-#656D75
-#464A5A
-#343243
-#1C1C2E
-#0C0B14*/
+/*#7f0000    #cc0000    #ff4444    #ff7f7f    #ffb2b2
+#995100    #cc6c00    #ff8800    #ffbb33    #ffe564
+#2c4c00    #436500    #669900    #99cc00    #d2fe4c
+#3c1451    #6b238e    #9933cc    #aa66cc    #bc93d1
+#004c66    #007299    #0099cc    #33b5e5    #8ed5f0
+#660033    #b20058    #e50072    #ff3298    #ff7fbf*/
+
+/*rgb(0,56,56)    rgb(0,127,127)    rgb(0,190,190)
+rgb(190,190,190)    rgb(210,173,173)    rgb(222,157,157)
+rgb(222,157,130)    rgb(255,164,122)    rgb(255,191,127)
+rgb(255,210,122)    rgb(254,194,76)    rgb(253,177,26)
+rgb(255,169,0)    rgb(254,126,0)    rgb(254,75,0)
+rgb(254,0,0)    rgb(254,0,50)    rgb(254,0,126)
+rgb(254,0,193)    rgb(200,0,193)    rgb(160,0,193) rgb(128,0,193)
+rgb(60,0,193)    rgb(31,0,102) rgb(15,0,51)*/
+
+/*#266F95  #295677  #193455
+#B9C3B1  #8B9692  #656D75  #464A5A
+#343243  #1C1C2E  #0C0B14*/
 
 /*
 #FCC0A1
@@ -40,12 +41,21 @@
 #092E57
 */
 
+/*#51574a    #447c69    #74c493
+#8e8c6d    #8266ac    #e4bf80
+#e9d78e    #e2975d    #f19670
+#e16552    #c94a53    #be5168
+#a34974    #993767    #65387d
+#4e2472    #9163b6    #e279a3
+#e0598b    #7c9fb0    #7fb4c7
+#5698c4    #9abf88*/
 
+/*http://wallup.net/wp-content/uploads/2016/01/92653-artwork-map-digital_art.jpg*/
 
 body {
 padding: 0;
 margin:0;
-background: linear-gradient(45deg, rgba(25, 52, 85, .9) 25%, rgba(41, 86, 119, .9) 50%, rgba(139, 150, 146, .9) 75%),url("https://i.imgsafe.org/d556ad0b13.jpg");
+background: linear-gradient(45deg, rgba(25, 52, 85, .9) 25%, rgba(41, 86, 119, .9) 50%, rgba(139, 150, 146, .9) 75%),url("http://wallpapercave.com/wp/lHD4zJs.jpg");
 background-repeat: no-repeat;
 background-attachment: fixed;
 }
@@ -134,14 +144,22 @@ ul{
 .glyphicon-usd:before {
   display: flex;
   margin: 25px;
+  color: #EDEAE3;
 }
 .glyphicon-stats:before {
   display: flex;
   margin: 25px;
+  color: #EDEAE3;
 }
 .glyphicon-thumbs-up:before {
   display: flex;
   margin: 25px;
+  color: #EDEAE3;
+}
+.glyphicon-thumbs-down:before {
+  display: flex;
+  margin: 25px;
+  color: #EDEAE3;
 }
 
 /*       Home Page                         */
@@ -157,8 +175,7 @@ ul{
   min-width: 30%;
 }
 .my-pretty-chart-container{
-  width: 70%;
-  float: right;
+  width: 100%;
   display: flex;
 }
 

@@ -11,7 +11,7 @@ class TotalExpenses extends Component {
                 ],
                 ['placeholder', 0]
             ],
-            income: 0
+            income: 2500
         }
     }
     componentDidMount() {
@@ -35,14 +35,14 @@ class TotalExpenses extends Component {
         var styles = {
             total: {
                 fontWeight: "bold",
-                fontFamily: "Yatra One",
+                fontFamily: "Oswald",
                 height: "100px",
                 textAlign: "center",
                 backgroundColor: "#343243",
                 color: "#EDEAE3",
                 margin: "10px",
                 display: "inline-flex",
-                width: "250px",
+                width: "300px",
 
 
             },
@@ -55,23 +55,23 @@ class TotalExpenses extends Component {
               margin: "15px",
             },
             label1: {
-                color: "#00BEBE",
+                color: "#7fb4c7",
                 display: "inline-block",
                 fontSize: "42px",
             },
             label2: {
-                color: "#FE0032",
+                color: "#c94a53",
                 display: "inline-block",
                 fontSize: "42px",
             },
             label3: {
-                color: "#669900",
+                color: "#9abf88",
                 display: "inline-block",
                 fontSize: "42px",
             },
             icon1:{
               fontSize: "48px",
-              background: "#00BEBE",
+              background: "#7fb4c7",
               textAlign: "center",
               position:"relative",
               height: "100px",
@@ -80,7 +80,7 @@ class TotalExpenses extends Component {
             },
             icon2:{
               fontSize: "48px",
-              background: "#FE0032",
+              background: "#c94a53",
               textAlign: "center",
               position:"relative",
               height: "100px",
@@ -89,7 +89,7 @@ class TotalExpenses extends Component {
             },
             icon3:{
               fontSize: "48px",
-              background: "#669900",
+              background: "#9abf88",
               textAlign: "center",
               position:"relative",
               height: "100px",
@@ -98,7 +98,7 @@ class TotalExpenses extends Component {
             }
         }
         return (
-            <div className="col-sm-9 col-sm-offset-1 col-xs-offset-4" style={styles.container}>
+            <div className="col-sm-9 col-sm-offset-2 col-xs-offset-4" style={styles.container}>
                 <div style={styles.total}>
                   <i className="glyphicon glyphicon-usd" style={styles.icon1}></i>
                     <p style={styles.title}>
@@ -118,13 +118,12 @@ class TotalExpenses extends Component {
                   </p>
                 </div>
                 <div style={styles.total}>
-                  <i className="glyphicon glyphicon-thumbs-up" style={styles.icon3}></i>
+                  {surplus < 0 ? <i className="glyphicon glyphicon-thumbs-down" style={styles.icon3}></i> :
+                                 <i className="glyphicon glyphicon-thumbs-up" style={styles.icon3}></i>}
                   <p style={styles.title}>
                     Surplus<br/>
                   <span style={styles.label3}>
-                    {surplus < 0
-                      ? " You don't make enough, Ass Hole!"
-                      : " $" + surplus}
+                    {surplus}
                     </span>
                   </p>
                 </div>

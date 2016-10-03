@@ -15,8 +15,8 @@ function LoginContainer(props) {
 
                                         <input type="text" placeholder="Enter User Name" className="form-control input-md"/>
                                         <input type="password" placeholder="Enter Password" className="form-control input-md"/>
-                                        <button onClick={props.toggleLogin} className="btn btn-sm">Sign Up</button>
                                         <button className="btn btn-sm ">Sign In</button>
+                                        <button onClick={props.toggleLogin} className="btn btn-sm">Sign Up</button>
 
                                 </form>
 
