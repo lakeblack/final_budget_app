@@ -12,6 +12,8 @@ class Nav extends Component {
         navbar:{
           display: "inline-flex",
           width: "100%",
+          textAlign: "center",
+          justifyContent: "center"
         },
         container: {
           width: "100%",
@@ -21,7 +23,7 @@ class Nav extends Component {
           <nav style={styles.container} className="navbar navbar-default visable-xs">
             <div className="container-fluid visable-xs">
               <div className="navbar-header visable-xs">
-                <ul style={styles.navbar} className="nav navbar-left visable-xs">
+                <ul style={styles.navbar} className="nav visable-xs">
                   <li  className="hidden-sm">
                     <Link to={`/home/${localStorage.UID}`}>
                       <i className="glyphicon glyphicon-dashboard "></i>
