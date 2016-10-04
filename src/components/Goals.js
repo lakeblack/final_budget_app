@@ -159,19 +159,21 @@ class Goals extends Component{
       <div>
         <Dashboard />
           <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
-          <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <h3 style={{color:'white'}}>Goal: ${this.state.goal}</h3>
-            <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
+          <div style={{color:'white'}} className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div style={{background: "rgba(52, 50, 67, 0.7)", border: " 1px solid rgba(237, 234, 227, 0.6)", borderRadius:"5px", marginTop:"10px"}}>
+              <h3>Goal: ${this.state.goal}</h3>
+              <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
 
-            <p>Select Start Date: <input type="date" value={this.state.start} ref="start" onChange={this.handleStart.bind(this)}/></p>
-            <p>Select End Date: <input type="date" value={this.state.end} ref="end" onChange={this.handleEnd.bind(this)}/></p>
-            <p style={{color:'white'}}>{ dailySavings === Infinity ? null : "days:" + days + " $" + Math.floor(dailySavings)}</p>
-            <p style={{color:'white'}}>{ weeklySavings === Infinity ? null: "weeks:" + weeks + " $" + Math.floor(weeklySavings)}</p>
-            <p style={{color:'white'}}>{ monthlySavings === Infinity ? null: "months:" + months + " $" + Math.floor(monthlySavings)}</p>
+              <p>Select Start Date: <input type="date" value={this.state.start} ref="start" onChange={this.handleStart.bind(this)}/></p>
+              <p>Select End Date: <input type="date" value={this.state.end} ref="end" onChange={this.handleEnd.bind(this)}/></p>
+              <p>{ dailySavings === Infinity ? null : "days:" + days + " | average per day savings: $" + Math.floor(dailySavings)}</p>
+              <p>{ weeklySavings === Infinity ? null: "weeks:" + weeks + " | average per week savings: $" + Math.floor(weeklySavings)}</p>
+              <p>{ monthlySavings === Infinity ? null: "months:" + months + " | average per month savings: $" + Math.floor(monthlySavings)}</p>
+            </div>
 
-              <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"45%"} height={"400px"}/>
-              {this.state.lineData.slice(1, this.state.lineData.length).map((point, index) =>
-                <div key={index} style={{color:'white'}}>
+              <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"80%"} height={"400px"}/>
+            {this.state.lineData.slice(1, this.state.lineData.length).map((point, index) =>
+                <div key={index} style={{background: "rgba(52, 50, 67, 0.7)", border: " 1px solid rgba(237, 234, 227, 0.6)", borderRadius:"5px", marginBottom:"10px"}}>
                   <h4>{point[0]}</h4>
                   <p>Projected: {Math.ceil(point[1])}</p>
                   <p><input type="range" value={point[2]} min={0} max={this.state.goal + 500} onChange={this.handleInput.bind(this, point)}/></p>
