@@ -120,8 +120,8 @@ class LoanManager extends Component{
     //   "Months:" + loan.months
     // ));
     let currentLoans = this.state.loans.map((loan, index) =>
-      <div key={index} style={{minWidth:'45%', margin:'10px'}}>
-          <h3 onClick={this.handleClick.bind(this, loan)}>{loan.type}</h3>
+      <div key={index} style={{minWidth:'400px', margin:'10px', background: "rgba(52, 50, 67, 0.7)", border: " 1px solid rgba(237, 234, 227, 0.6)", borderRadius:"5px"}}>
+          <h3 style={{borderBottom: "1px solid rgba(237, 234, 227, 0.6)", color:"#9abf88"}} onClick={this.handleClick.bind(this, loan)}>{loan.type}</h3>
               <div className={`${loan.type}`}>
                   { loan.type === 'Auto' ? //ternary operation to account for max principal and max months
                     <div>
@@ -175,7 +175,7 @@ class LoanManager extends Component{
           {/* <TotalExpenses /> */}
         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div style={{display:'flex', flexWrap:'wrap', maxWidth:'100%'}}>{currentLoans}</div>
-          <h3>Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
+          <h3><span style={{background: "rgba(52, 50, 67, 0.7)", border: " 1px solid rgba(237, 234, 227, 0.6)", borderRadius:"5px", color:"#9abf88"}}>Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</span></h3>
         </div>
       </div>
     )
