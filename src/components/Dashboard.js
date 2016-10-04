@@ -12,7 +12,13 @@ class Dashboard extends Component {
         },
         navbar:{
           display: "flex"
+        },
+        logo: {
+          borderRadius:"35px",
+          height:"75px",
+          width: "75px"
         }
+
       }
         return (
             <div>

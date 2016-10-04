@@ -113,49 +113,84 @@ class LoanManager extends Component{
     $(`.${loan.type}`).toggle('slow');
   }
   render(){
-    // console.log(this.state.loans.map((loan, index) =>
-    //   "Type:" + loan.type + " " +
-    //   "Principal:" + loan.principal + " " +
-    //   "Rate:" + loan.rate + " " +
-    //   "Months:" + loan.months
-    // ));
+    let styles = {
+      wrapper: {
+        display:'flex',
+        flexWrap:'wrap',
+        maxWidth:'100%',
+      },
+      container:{
+        background: "rgba(52, 50, 67, 0.7)",
+        width: "400px",
+        borderRadius: "5px",
+        margin: "20px auto",
+        paddingBottom: "20px",
+        border: " 1px solid rgba(237, 234, 227, 0.6)",
+        padding: "10px"
+      },
+      heading:{
+        display: 'flex',
+        borderBottom: "1px solid rgba(237, 234, 227, 0.6)",
+        marginBottom: "10px",
+        width: "380px"
+
+      },
+      title:{
+        margin: "5px",
+        fontSize: "28px",
+        color:"#9abf88"
+      },
+      payments:{
+        margin: "5px",
+        fontSize: "20px"
+      },
+      subCat:{
+        display: "flex",
+      },
+      slider:{
+        width: "70%",
+      },
+      total:{
+        textAlign: "center",
+      }
+    }
     let currentLoans = this.state.loans.map((loan, index) =>
-      <div key={index} style={{minWidth:'45%', margin:'10px'}}>
-          <h3 onClick={this.handleClick.bind(this, loan)}>{loan.type}</h3>
+      <div key={index} style={styles.container}>
+          <div style={styles.heading}>
+            <p style={styles.title} onClick={this.handleClick.bind(this, loan)}> {loan.type}</p>
+          </div>
               <div className={`${loan.type}`}>
                   { loan.type === 'Auto' ? //ternary operation to account for max principal and max months
                     <div>
-                      <p>Principal
-                        <input type='range' value={loan.principal} min={0} max={50000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
+                      <p style={styles.subCat}>Principal
+                        <input style={styles.slider} type='range' value={loan.principal} min={0} max={50000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
                         {loan.principal}
                         </p>
-                        <p>Rate
-                        <input type='range' value={loan.rate} min={.1} max={20} step={.1} onChange={this.handleRate.bind(this, loan, index)}/>
+                        <p style={styles.subCat}>Rate
+                        <input style={styles.slider} type='range' value={loan.rate} min={.1} max={20} step={.1} onChange={this.handleRate.bind(this, loan, index)}/>
                         {loan.rate}
                         </p>
-                        <p>Months
-                        <input type='range' value={loan.months} min={1} max={78} step={1} onChange={this.handleMonths.bind(this, loan, index)}/>
+                        <p style={styles.subCat}>Months
+                        <input style={styles.slider} type='range' value={loan.months} min={1} max={78} step={1} onChange={this.handleMonths.bind(this, loan, index)}/>
                         {loan.months}
                       </p>
                     </div>
                     :
                     <div>
-                      <p>Principal
-                        <input type='range' value={loan.principal} min={0} max={300000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
+                      <p style={styles.subCat}>Principal
+                        <input style={styles.slider} type='range' value={loan.principal} min={0} max={300000} step={100} onChange={this.handlePrincipal.bind(this, loan, index)}/>
                         {loan.principal}
                         </p>
-                        <p>Rate
-                        <input type='range' value={loan.rate} min={.1} max={20} step={.1} onChange={this.handleRate.bind(this, loan, index)}/>
+                        <p style={styles.subCat}>Rate
+                        <input style={styles.slider} type='range' value={loan.rate} min={.1} max={20} step={.1} onChange={this.handleRate.bind(this, loan, index)}/>
                         {loan.rate}
                         </p>
-                        <p>Months
-                        <input type='range' value={loan.months} min={1} max={360} step={1} onChange={this.handleMonths.bind(this, loan, index)}/>
+                        <p style={styles.subCat}>Months
+                        <input style={styles.slider} type='range' value={loan.months} min={1} max={360} step={1} onChange={this.handleMonths.bind(this, loan, index)}/>
                         {loan.months}
                       </p>
                     </div>
                     }
-                  <p>Monthly Payment: {loan.monthlyPayment}</p>
-                  <p>Total Interest: {loan.interestTotal}</p>
                   {/* <Chart className={"my-pretty-chart-container"} chartType="PieChart"
                   data={[
                     ['Principal', 'Interest'],
@@ -166,6 +201,9 @@ class LoanManager extends Component{
                   height={"400px"}
                   legend_toggle={true} /> */}
                 </div>
+                <p>Total Interest: ${loan.interestTotal}</p>
+                <p>Monthly Payments: ${loan.monthlyPayment}</p>
+
         </div>
       )
     return(
@@ -174,8 +212,8 @@ class LoanManager extends Component{
           <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
           {/* <TotalExpenses /> */}
         <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div style={{display:'flex', flexWrap:'wrap', maxWidth:'100%'}}>{currentLoans}</div>
-          <h3>Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
+          <h3 style={styles.total} className="loanTotal">Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
+            <div style={styles.wrapper}>{currentLoans}</div>
         </div>
       </div>
     )

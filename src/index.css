@@ -142,9 +142,6 @@ input[type="text"], input[type="password"]
       overflow: scroll;
       opacity: 1;
     }
-    .income{
-      margin-top: 150px;
-    }
 .nav > li > a:hover, .nav > li > a:focus{
   background: none;
 }
@@ -183,8 +180,8 @@ ul.nav-sidebar{
 }
 
 @media screen and (max-width: 768px){
-  .row{
-    margin-top: 100px;
+  .main{
+    margin-top: 120px;
   }
   .income{
     margin-top: 50px;
@@ -196,10 +193,10 @@ ul.nav-sidebar{
   .my-pretty-chart-container{
     margin-top: 350px;
   }
+  .loanTotal{
+    margin-top: 150px;
+  }
 }
-
-
-
 
 
 
