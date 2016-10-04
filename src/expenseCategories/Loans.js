@@ -36,15 +36,16 @@ class Loans extends Component {
     const styles = {
       wrapper: {
           background: "rgba(52, 50, 67, 0.7)",
-          width: "300px",
           borderRadius: "5px",
           margin: "20px",
           border: " 1px solid rgba(237, 234, 227, 0.6)",
           color: "#9abf88",
+          minWidth: "350px",
+
       },
         container: {
             position: "relative",
-            width: "280px",
+            width: "90%",
             borderBottom: "1px solid rgba(237, 234, 227, 0.6)",
             margin: "10px"
         },
@@ -62,7 +63,7 @@ class Loans extends Component {
 
     }
     return(
-      <div style={styles.wrapper}>
+      <div style={styles.wrapper} className="col-sm-3 col-sm-offset-3">
         <div style={styles.container} onClick={this.handleClick.bind(this)}>
           <p style={styles.title}>Loans
             <label style={styles.price}>${this.state.total}</label>
