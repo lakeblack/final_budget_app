@@ -110,7 +110,6 @@ input[type="text"], input[type="password"]
 }
 
 input[type="date"] {
-  width: 15%;
   margin: 0;
   padding: 5px 10px;
   background: none;
