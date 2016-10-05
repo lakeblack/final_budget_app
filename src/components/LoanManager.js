@@ -152,6 +152,18 @@ class LoanManager extends Component{
       },
       total:{
         textAlign: "center",
+        background: "rgba(52, 50, 67, 0.7)",
+        border: " 1px solid rgba(237, 234, 227, 0.6)",
+        borderRadius: "5px",
+        width: "80%",
+        margin: "auto",
+        padding: "20px",
+
+      },
+      extra:{
+        borderRadius: "35px",
+        padding: "15px",
+        background: "#9abf88",
       }
     }
     let currentLoans = this.state.loans.map((loan, index) =>
@@ -207,12 +219,12 @@ class LoanManager extends Component{
         </div>
       )
     return(
-      <div style={{color:"white"}}>
+      <div style={{color:"rgba(237, 234, 227, 0.6)"}}>
         <Dashboard />
           <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
           {/* <TotalExpenses /> */}
         <div className="col-sm-offset-2 col-md-10 col-md-offset-1 main">
-          <h3 style={styles.total} className="loanTotal">Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
+          <h3 style={styles.total} className="loanTotal col-md-offset-1">Total Monthly Payment towards Loans <br/><br/><span style={styles.extra}>${this.state.totalLoanPayment}</span></h3>
             <div style={styles.wrapper}>{currentLoans}</div>
         </div>
       </div>
