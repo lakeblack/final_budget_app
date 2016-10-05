@@ -211,7 +211,7 @@ class LoanManager extends Component{
         <Dashboard />
           <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
           {/* <TotalExpenses /> */}
-        <div className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div className="col-sm-offset-2 col-md-10 col-md-offset-1 main">
           <h3 style={styles.total} className="loanTotal">Total Monthly Payment towards Loans: ${this.state.totalLoanPayment}</h3>
             <div style={styles.wrapper}>{currentLoans}</div>
         </div>

@@ -17,7 +17,7 @@ class Home extends Component{
 
             </span>
             <TotalExpenses />
-            <span className="hidden-xs"><Income/></span>
+            <div className="hidden-xs"><Income/></div>
             <Graph/>
             <Expenses/>
           </div>
