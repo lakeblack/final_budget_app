@@ -146,7 +146,6 @@ input[type="date"] {
     padding: 0;
     background: rgba(28, 28, 46, 0.5);
     border: none;
-    overflow: scroll;
     opacity: 1;
   }
   .navbar{
