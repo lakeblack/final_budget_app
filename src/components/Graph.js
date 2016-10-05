@@ -18,7 +18,7 @@ class PieChart extends Component{
         backgroundColor: 'none',
         is3D: false,
         pieSliceBorderColor: 'none',
-        legend: {textStyle: {color: 'black'}},
+        legend: {textStyle: {color: 'white'}},
         titleTextStyle: {color: 'black'},
         colors: ["#e279a3","#7fb4c7","#8266ac","#9abf88","#e2975d","#e9d78e","#c94a53"]
       },
@@ -26,6 +26,12 @@ class PieChart extends Component{
         backgroundColor: 'none',
         legend: { position: 'none' },
         colors: ['#e2975d'],
+        hAxis: {textStyle:{
+          color:"rgb(237, 234, 227)"
+        }},
+        vAxis: {textStyle:{
+          color: "rgb(237, 234, 227)"
+        }}
 
       },
   }
@@ -55,7 +61,7 @@ class PieChart extends Component{
         border: " 1px solid rgba(237, 234, 227, 0.6)",
         color: "rgba(237, 234, 227, 0.6)",
         margin: "20px",
-        maxWidth: "534.50px"
+        maxWidth: "534.50px",
 
       },
       container2:{
@@ -71,6 +77,7 @@ class PieChart extends Component{
       <div className="row col-sm-12" style={styles.wrapper}>
         <div className={"my-pretty-chart-container"}>
           <div style={styles.container} className="col-md-5 col-md-offset-2 pie">
+            <h2></h2>
             <Chart chartType="PieChart" data={this.state.data} options={this.state.pieOptions} width={"350px"} height={"350px"} legend_toggle={true} />
           </div>
           <div style={styles.container2} className="col-md-5 col-md-offset-2 bar">
