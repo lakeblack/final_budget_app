@@ -20,9 +20,15 @@ class Goals extends Component{
       lineData: [['Month', 'Projected', 'Actual'],['placeholder month', 1000, 800]],
       areaOptions: {
           title: 'Projected Savings v Actual Savings',
-          hAxis: {title: 'Month', textStyle: {color: 'white'}},
-          vAxis: {textStyle: {color: 'white'}},
+          hAxis: {
+            title: 'Month',
+            textStyle: {color: 'rgb(237, 234, 227)'},
+            titleTextStyle: {color: 'rgb(237, 234, 227)'}
+          },
+          vAxis: {textStyle: {color: 'rgb(237, 234, 227)'}},
           backgroundColor: 'none',
+          legend: {textStyle: {color: 'rgb(237, 234, 227)'}},
+          titleTextStyle: {color: 'rgb(237, 234, 227)'},
         }
     }
   }
@@ -185,13 +191,29 @@ class Goals extends Component{
         color: "rgba(237, 234, 227, 0.6)",
 
       },
+      timeout:{
+        display: "inline-flex",
+        width: "40%",
+        borderTop: " 1px solid rgba(237, 234, 227, 0.6)",
+        padding: "5px",
+        fontSize: "10px",
+
+      },
+      savings:{
+        display: "inline-flex",
+        borderTop: " 1px solid rgba(237, 234, 227, 0.6)",
+        borderLeft: " 1px solid rgba(237, 234, 227, 0.6)",
+        padding: "5px",
+        fontSize: "10px",
+
+      },
     }
     return(
       <div>
         <Dashboard />
         <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
         <div className="row">
-          <div className="col-md-offset-1 col-sm-offset-2 col-md-10 col-md-offset-1  main">
+          <div className="col-md-offset-1 col-sm-offset-2 col-md-12 col-md-offset-1  main">
             <div style={styles.container} className="col-md-6">
               <h3>Goal: ${this.state.goal}</h3>
               <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
@@ -201,16 +223,14 @@ class Goals extends Component{
             </div>
             <div style={styles.timespan} className="col-md-3">
               <h3>Goal Timespan</h3>
-              <p>{dailySavings === Infinity ? null : "days: " + days}
-                <span>{dailySavings === Infinity ? null : "savings per day" + "$" + Math.floor(dailySavings)}</span>
-              </p>
+              <p style={styles.timeout}>{dailySavings === Infinity ? null : "days: " + days}</p>
+              <p style={styles.savings}>{dailySavings === Infinity ? null : "savings per day: " + "$" + Math.floor(dailySavings)}</p>
 
-              <p>{weeklySavings === Infinity ? null: "weeks: " + weeks}
-                <span>{weeklySavings === Infinity ? null : "savings per week" + "$" + Math.floor(weeklySavings)}</span>
-              </p>
-              <p>{monthlySavings === Infinity ? null: "months: " + months}
-                <span>{monthlySavings === Infinity ? null : "savings per month" + "$" + Math.floor(monthlySavings)}</span>
-              </p>
+              <p style={styles.timeout}>{weeklySavings === Infinity ? null: "weeks: " + weeks}</p>
+              <p style={styles.savings}>{weeklySavings === Infinity ? null : "savings per week: " + "$" + Math.floor(weeklySavings)}</p>
+
+              <p style={styles.timeout}>{monthlySavings === Infinity ? null: "months: " + months}</p>
+              <p style={styles.savings}>{monthlySavings === Infinity ? null : "savings per month: " + "$" + Math.floor(monthlySavings)}</p>
             </div>
 
         </div>
@@ -218,7 +238,7 @@ class Goals extends Component{
             <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"350px"} height={"350px"}/>
           </div>
 
-        <div className="row col-md-offset-1 col-sm-offset-2 col-md-10 col-xs-10 col-xs-offset-1">
+        <div className="row col-md-offset-1 col-sm-offset-2 col-md-12 col-xs-10 col-xs-offset-1">
 
           {this.state.lineData.slice(1, this.state.lineData.length).map((point, index) =>
             <div key={index} style={styles.container} className="col-md-3">
