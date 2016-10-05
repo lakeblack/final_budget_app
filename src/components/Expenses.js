@@ -20,7 +20,7 @@ class Expenses extends Component{
       }
     }
     return (
-        <div style={styles.wrapper}>
+        <div style={styles.wrapper} className="row col-sm-12">
           <span style={styles.income} className="hidden-sm hidden-md hidden-lg"><Income/></span>
           <Food />
           <Fun />
