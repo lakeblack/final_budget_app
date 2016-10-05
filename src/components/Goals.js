@@ -224,13 +224,13 @@ class Goals extends Component{
             <div style={styles.timespan} className="col-md-3">
               <h3>Goal Timespan</h3>
               <p style={styles.timeout}>{dailySavings === Infinity ? null : "days: " + days}</p>
-              <p style={styles.savings}>{dailySavings === Infinity ? null : "savings per day: " + "$" + Math.floor(dailySavings)}</p>
+              <p style={styles.savings}>{dailySavings === Infinity ? null : "savings per day: $" + Math.floor(dailySavings)}</p>
 
               <p style={styles.timeout}>{weeklySavings === Infinity ? null: "weeks: " + weeks}</p>
-              <p style={styles.savings}>{weeklySavings === Infinity ? null : "savings per week: " + "$" + Math.floor(weeklySavings)}</p>
+              <p style={styles.savings}>{weeklySavings === Infinity ? null : "savings per week: $" + Math.floor(weeklySavings)}</p>
 
               <p style={styles.timeout}>{monthlySavings === Infinity ? null: "months: " + months}</p>
-              <p style={styles.savings}>{monthlySavings === Infinity ? null : "savings per month: " + "$" + Math.floor(monthlySavings)}</p>
+              <p style={styles.savings}>{monthlySavings === Infinity ? null : "savings per month: $" + Math.floor(monthlySavings)}</p>
             </div>
 
         </div>
