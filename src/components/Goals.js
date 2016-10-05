@@ -155,30 +155,81 @@ class Goals extends Component{
     let dailySavings = this.state.goal / days;
     let weeklySavings = this.state.goal / weeks;
     let monthlySavings = this.state.goal / months;
+    let styles = {
+      container:{
+        background: "rgba(52, 50, 67, 0.7)",
+        borderRadius: "5px",
+        paddingBottom: "20px",
+        border: " 1px solid rgba(237, 234, 227, 0.6)",
+        color: "rgba(237, 234, 227, 0.6)",
+        margin: "5px",
+
+      },
+      timespan:{
+        background: "rgba(52, 50, 67, 0.7)",
+        borderRadius: "5px",
+        paddingBottom: "20px",
+        border: " 1px solid rgba(237, 234, 227, 0.6)",
+        color: "rgba(237, 234, 227, 0.6)",
+        margin: "5px",
+        marginLeft: "15px",
+        height: "181.84px"
+
+      },
+      chart:{
+        background: "rgba(52, 50, 67, 0.7)",
+        borderRadius: "5px",
+        padding: "none",
+        border: " 1px solid rgba(237, 234, 227, 0.6)",
+        minWidth: "350px",
+        color: "rgba(237, 234, 227, 0.6)",
+
+      },
+    }
     return(
       <div>
         <Dashboard />
-          <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
-          <div style={{color:'white'}} className="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-            <div style={{background: "rgba(52, 50, 67, 0.7)", border: " 1px solid rgba(237, 234, 227, 0.6)", borderRadius:"5px", marginTop:"10px"}}>
+        <span className="hidden-sm hidden-md hidden-lg"><Nav/></span>
+        <div className="row">
+          <div className="col-md-offset-1 col-sm-offset-2 col-md-10 col-md-offset-1  main">
+            <div style={styles.container} className="col-md-6">
               <h3>Goal: ${this.state.goal}</h3>
               <input id="toggle" type='range' min={0} max={9999} step={5} value={this.state.goal} ref="goal" onChange={this.handleChange.bind(this)}/>
 
               <p>Select Start Date: <input type="date" value={this.state.start} ref="start" onChange={this.handleStart.bind(this)}/></p>
               <p>Select End Date: <input type="date" value={this.state.end} ref="end" onChange={this.handleEnd.bind(this)}/></p>
-              <p>{ dailySavings === Infinity ? null : "days:" + days + " | average per day savings: $" + Math.floor(dailySavings)}</p>
-              <p>{ weeklySavings === Infinity ? null: "weeks:" + weeks + " | average per week savings: $" + Math.floor(weeklySavings)}</p>
-              <p>{ monthlySavings === Infinity ? null: "months:" + months + " | average per month savings: $" + Math.floor(monthlySavings)}</p>
+            </div>
+            <div style={styles.timespan} className="col-md-3">
+              <h3>Goal Timespan</h3>
+              <p>{dailySavings === Infinity ? null : "days: " + days}
+                <span>{dailySavings === Infinity ? null : "savings per day" + "$" + Math.floor(dailySavings)}</span>
+              </p>
+
+              <p>{weeklySavings === Infinity ? null: "weeks: " + weeks}
+                <span>{weeklySavings === Infinity ? null : "savings per week" + "$" + Math.floor(weeklySavings)}</span>
+              </p>
+              <p>{monthlySavings === Infinity ? null: "months: " + months}
+                <span>{monthlySavings === Infinity ? null : "savings per month" + "$" + Math.floor(monthlySavings)}</span>
+              </p>
             </div>
 
-              <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"80%"} height={"400px"}/>
-            {this.state.lineData.slice(1, this.state.lineData.length).map((point, index) =>
-                <div key={index} style={{background: "rgba(52, 50, 67, 0.7)", border: " 1px solid rgba(237, 234, 227, 0.6)", borderRadius:"5px", marginBottom:"10px"}}>
-                  <h4>{point[0]}</h4>
-                  <p>Projected: {Math.ceil(point[1])}</p>
-                  <p><input type="range" value={point[2]} min={0} max={this.state.goal + 500} onChange={this.handleInput.bind(this, point)}/></p>
-                  <p>Actual: {point[2]}</p>
-                </div>)}
+        </div>
+          <div className="col-md-offset-2 col-md-6 col-xs-10 col-xs-offset-1 col-sm-offset-3 col-sm-8" style={styles.chart}>
+            <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"350px"} height={"350px"}/>
+          </div>
+
+        <div className="row col-md-offset-1 col-sm-offset-2 col-md-10 col-xs-10 col-xs-offset-1">
+
+          {this.state.lineData.slice(1, this.state.lineData.length).map((point, index) =>
+            <div key={index} style={styles.container} className="col-md-3">
+              <h4>{point[0]}</h4>
+              <p>Projected: {Math.ceil(point[1])}</p>
+              <p><input type="range" value={point[2]} min={0} max={this.state.goal + 500} onChange={this.handleInput.bind(this, point)}/></p>
+              <p>Actual: {point[2]}</p>
+            </div>)}
+        </div>
+
+
           </div>
 
 

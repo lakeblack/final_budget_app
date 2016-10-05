@@ -41,11 +41,12 @@ class TotalExpenses extends Component {
                 backgroundColor: "rgba(52, 50, 67, 0.6)",
                 color: "rgba(237, 234, 227, 0.6)",
                 margin: "20px",
-                display: "inline-flex",
                 padding: "0",
-                minWidth: "280px",
+                minWidth: "350px",
+                display: "inline-flex",
             },
             container: {
+              flexFlow: "wrap",
                 display: "inline-flex",
                 position: "absolute",
             },
@@ -112,8 +113,8 @@ class TotalExpenses extends Component {
         return (
           <div className="row">
 
-            <div className="col-sm-12 totals" style={styles.container}>
-              <div style={styles.total} className="col-sm-3 col-sm-offset-3">
+            <div className="col-sm-12 totals " style={styles.container}>
+              <div style={styles.total} className="col-md-3">
                 <i className="glyphicon glyphicon-usd" style={styles.icon1}></i>
                 <p style={styles.title}>
                   Income<br/>
@@ -122,7 +123,7 @@ class TotalExpenses extends Component {
                 </span>
               </p>
             </div>
-            <div style={styles.total} className="col-sm-3 col-sm-offset-3">
+            <div style={styles.total} className="col-md-3">
               <i className="glyphicon glyphicon-stats" style={styles.icon2}></i>
               <p style={styles.title}>
                 Total Expenses<br/>
@@ -131,7 +132,7 @@ class TotalExpenses extends Component {
               </span>
             </p>
           </div>
-          <div style={styles.total} className="col-sm-3 col-sm-offset-3">
+          <div style={styles.total} className="col-md-3">
             {surplus < 0 ? <i className="glyphicon glyphicon-thumbs-down" style={styles.icon3b}></i> :
             <i className="glyphicon glyphicon-thumbs-up" style={styles.icon3}></i>}
               <p style={styles.title}>

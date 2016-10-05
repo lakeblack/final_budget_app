@@ -38,7 +38,6 @@ class Income extends Component {
             wrapper: {
                 background: "rgba(52, 50, 67, 0.7)",
                 borderRadius: "5px",
-                marginTop: "150px",
                 paddingBottom: "20px",
                 border: " 1px solid rgba(237, 234, 227, 0.6)",
                 minWidth: "350px",
@@ -66,7 +65,7 @@ class Income extends Component {
 
         }
         return (
-            <div style={styles.wrapper} className="income col-sm-4 col-sm-offset-3">
+            <div style={styles.wrapper} className="row income col-sm-4 col-sm-offset-3">
                 <div style={styles.container}>
                     <p style={styles.title}>Income
                         <span style={styles.price}>
