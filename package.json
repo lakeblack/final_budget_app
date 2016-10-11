@@ -1,5 +1,6 @@
 {
   "name": "final_budget_app",
+  "homepage": "http://lakeblack.github.io/final_budget_app",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
