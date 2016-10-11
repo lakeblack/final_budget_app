@@ -235,7 +235,7 @@ class Goals extends Component{
 
         </div>
           <div className="col-md-offset-2 col-md-6 col-xs-10 col-xs-offset-1 col-sm-offset-3 col-sm-8" style={styles.chart}>
-            <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"350px"} height={"350px"}/>
+            <Chart chartType="AreaChart" data={this.state.lineData} options={this.state.areaOptions} width={"100%"} height={"350px"}/>
           </div>
 
         <div className="row col-md-offset-1 col-sm-offset-2 col-md-12 col-xs-10 col-xs-offset-1">

@@ -213,8 +213,8 @@ class LoanManager extends Component{
                   height={"400px"}
                   legend_toggle={true} /> */}
                 </div>
-                <p>Total Interest: ${loan.interestTotal}</p>
-                <p>Monthly Payments: ${loan.monthlyPayment}</p>
+                <p>Total Interest: ${loan.interestTotal.toFixed(2)}</p>
+                <p>Monthly Payments: ${loan.monthlyPayment.toFixed(2)}</p>
 
         </div>
       )
